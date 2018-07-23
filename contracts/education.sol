@@ -31,6 +31,7 @@ contract education {
   mapping(bytes32 => coursereq) idtocoursemapping;
   mapping(bytes32 => address[]) coursetobid;
   mapping(address => bid) addresstobid;
+  mapping (bytes32 => string[]) coursetovid;
 
   /*
   function register_user(string name,string email,string password) {
@@ -45,6 +46,7 @@ contract education {
     idtocoursemapping[id]=coursereq(id,name,details,msg.value,msg.sender,false,0);
     requestedcourses.push(id);
     coursetobid[id]=[0];
+    coursetovid[id]=["0"];
 
   }
 
@@ -80,6 +82,16 @@ contract education {
     idtocoursemapping[addresstobid[bidder].courseid].accepted=true;
     idtocoursemapping[addresstobid[bidder].courseid].teacher_add=bidder;
 
+  }
+
+
+  function addvideo(bytes32 reqid,string vidhash) {
+    require(idtocoursemapping[reqid].teacher_add==msg.sender);
+    coursetovid[reqid].push(vidhash);
+  }
+
+  function showvideos(bytes32 id,uint i) constant returns(string) {
+    return coursetovid[id][i];
   }
 
 
