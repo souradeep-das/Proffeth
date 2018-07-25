@@ -26,12 +26,23 @@ contract education {
    bool accepted;
  }
 
+
+ struct course{
+   bytes32 courseid;
+   string name;
+   string details;
+   uint fees;
+   address trainer;
+ }
+
+  mapping (bytes32 => course) courseadding;
   mapping(address => user) usermapping;
   mapping(address => coursereq) coursemapping;
   mapping(bytes32 => coursereq) idtocoursemapping;
   mapping(bytes32 => address[]) coursetobid;
   mapping(address => bid) addresstobid;
   mapping (bytes32 => string[]) coursetovid;
+  mapping (address => bytes32[]) usertocourse;
 
   /*
   function register_user(string name,string email,string password) {
@@ -94,7 +105,20 @@ contract education {
     return coursetovid[id][i];
   }
 
+  function newcourse(string name,string description,uint fees) {
+    bytes32 id =keccak256(name,msg.sender);
+    coursetovid[id]=["0"];
+    courseadding[id]=course(id,name,description,fees,msg.sender);
+  }
 
+  function addvideotocourse(bytes32 id,string vid) {
+    coursetovid[id].push(vid);
+  }
+
+  function takecourse(bytes32 id) payable {
+    require(msg.value>=courseadding[id].fees);
+    usertocourse[msg.sender].push(id);
+  }
 
 
   function() payable {
