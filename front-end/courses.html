@@ -8,6 +8,8 @@
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/custom-styles.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -20,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/soda.css">
 
 <!--===============================================================================================-->
   <script src="./node_modules/web3/dist/web3.min.js"></script>
@@ -27,56 +30,24 @@
 <body>
 
 	<div class="topnav">
-	  <a href="#home">Home</a>
-	  <a href="#courses">Courses</a>
-	  <a class="active" href="#courserequests">Course Requests</a>
+	  <a href="/index.html">Home</a>
+	  <a class="active" href="#courses">Courses</a>
+	  <a href="#courserequests">Course Requests</a>
 	  <a href="#about">About</a>
 	</div>
+	<br><br>
+
+<div id="box">
+
+
+
+</div>
 
 	<div class="bg-contact3" style="background-image: url('images/bg7.jpg');">
-		<div class="container-contact3">
-
-
-			<div class="wrap-contact3">
-				<form class="contact3-form validate-form">
-					<span class="contact3-form-title">
-						Add a Course
-					</span>
 
 
 
 
-
-					<div class="wrap-input3 validate-input" data-validate = "Name is required">
-						<input class="input3" type="text" name="coursename" placeholder="Course Name">
-						<span class="focus-input3"></span>
-					</div>
-
-
-
-					<div class="wrap-input3 validate-input" data-validate = "Course Details are required">
-						<input class="input3" name="details" id="details" placeholder="Please describe the details">
-						<span class="focus-input3"></span>
-					</div>
-
-					<div class="wrap-input3 validate-input" data-validate = "Fee is required">
-						<input class="input3" type="text" id="fees" name="fees" placeholder="How much do you want it to sell for?">
-						<span class="focus-input3"></span>
-					</div>
-
-
-					<div class="container-contact3-form-btn">
-						<button id="Submit" class="contact3-form-btn">
-							Submit
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -86,6 +57,9 @@
 <!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+
+
 	<script>
 		 if(typeof web3 !== 'undefined') {
 			 console.log("Unlock MetaMask");
@@ -206,6 +180,10 @@ switch (netId) {
 		"constant": false,
 		"inputs": [
 			{
+				"name": "reqname",
+				"type": "string"
+			},
+			{
 				"name": "name",
 				"type": "string"
 			},
@@ -227,6 +205,10 @@ switch (netId) {
 	{
 		"constant": false,
 		"inputs": [
+			{
+				"name": "reqname",
+				"type": "string"
+			},
 			{
 				"name": "name",
 				"type": "string"
@@ -333,6 +315,10 @@ switch (netId) {
 		"outputs": [
 			{
 				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
 				"type": "string"
 			},
 			{
@@ -346,6 +332,10 @@ switch (netId) {
 			{
 				"name": "",
 				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -433,12 +423,41 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0xA965A099d5E5F35b802Fc507Dc2ceFC4Bc6Be16A");
+var test = testContract.at("0x51db852d749a98a2f91e6d085642c6e68faecbb9");
 console.log(test);
 
-$("#Submit").click(function() {
-	test.newcourse($("#coursename").val(),$("#details").val(),$("#fees").val(),(error,result) => (console.log(result)));
+test.showallcourses(function(error,result1) {
+	if(!error)
+	{
+
+
+
+var html = "<div class=\"row\">";
+for(var j = 0; j < result1.length; j++) {
+		console.log('hello')
+
+test.showcoursebyid(result1[j],function(error,result){
+
+
+			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-20\">" + "<kbd style=\"background-color:rgb(0, 150, 50);\"\">Name :</kbd>  "+ result[1] + "<br><kbd style=\"background-color:rgb(0, 197, 50);\"\">Details :</kbd>  "+ result[2] + "<br>"   +  "<kbd style=\"background-color:rgb(0, 221, 50);\"\">Fee :</kbd>  "+ result[3] +  "<br><kbd style=\"background-color:rgb(0, 221, 50);\"\">Trainer :</kbd>  "+ result[5]  + "<br><img src=\"https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png\"" + "<br><center><a href=\"coursebuy.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-success\">Accept</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
+			document.getElementById("box").innerHTML = html;
+
+
 });
+
+	 }
+
+}
+else {
+	console.log(error);
+}
+});
+
+
+
+
+
+
 
 </script>
 <!--===============================================================================================-->

@@ -429,7 +429,7 @@ console.log(test);
 var courseid=parent.document.URL.substring(37,parent.document.URL.length);
 
 console.log(courseid);
-test.viewcourserequestswithdetails(courseid,function(error,result){
+test.showcoursebyid(courseid,function(error,result){
 if(!error)
 {
 	$("#name").html(result[1]);
@@ -442,7 +442,7 @@ else {
 });
 
 $("#accept").click(function() {
-	test.acceptcoursereq(courseid,(error,result) => (console.log(result)));
+	test.takecourse(courseid,(error,result) => (console.log(result)));
 });
 
 </script>

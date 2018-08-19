@@ -28,9 +28,10 @@
 
 	<div class="topnav">
 	  <a class="active" href="/index.html">Home</a>
-	  <a href="#courses">Courses</a>
-	  <a href="/coursedetails.html">Course Requests</a>
+	  <a href="courses.html">Courses</a>
+	  <a href="coursedetails.html">Course Requests</a>
 	  <a href="#about">About</a>
+		<a href="addcourses.html">Add a Course</a>
 	</div>
 
 	<div class="bg-contact3" style="background-image: url('images/bg1.jpg');">
@@ -48,7 +49,7 @@
 
 
 					<div class="wrap-input3 validate-input" data-validate = "Name is required">
-						<input class="input3" type="text" name="name" placeholder="Your Name">
+						<input class="input3" type="text" name="name" id="name" placeholder="Your Name">
 						<span class="focus-input3"></span>
 					</div>
 
@@ -208,6 +209,10 @@ switch (netId) {
 		"constant": false,
 		"inputs": [
 			{
+				"name": "reqname",
+				"type": "string"
+			},
+			{
 				"name": "name",
 				"type": "string"
 			},
@@ -229,6 +234,10 @@ switch (netId) {
 	{
 		"constant": false,
 		"inputs": [
+			{
+				"name": "reqname",
+				"type": "string"
+			},
 			{
 				"name": "name",
 				"type": "string"
@@ -335,6 +344,10 @@ switch (netId) {
 		"outputs": [
 			{
 				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
 				"type": "string"
 			},
 			{
@@ -348,6 +361,10 @@ switch (netId) {
 			{
 				"name": "",
 				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -435,11 +452,11 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0xA965A099d5E5F35b802Fc507Dc2ceFC4Bc6Be16A");
+var test = testContract.at("0x51db852d749a98a2f91e6d085642c6e68faecbb9");
 console.log(test);
 
 $("#Submit").click(function() {
-	test.request_course($("#coursename").val(),$("#details").val(),(error,result) => (console.log(result)));
+	test.request_course($("#name").val(),$("#coursename").val(),$("#details").val(),(error,result) => (console.log(result)));
 });
 
 </script>

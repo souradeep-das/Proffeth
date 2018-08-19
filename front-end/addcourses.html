@@ -18,8 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/new.css">
-  <link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <!--===============================================================================================-->
@@ -28,30 +27,62 @@
 <body>
 
 	<div class="topnav">
-	  <a href="/index.html">Home</a>
-	  <a href="#courses">Courses</a>
-	  <a class="active" href="/coursedetails.html">Course Requests</a>
+	  <a href="index.html">Home</a>
+	  <a class="active" href="#courses">Courses</a>
+	  <a href="coursedetails.html">Course Requests</a>
 	  <a href="#about">About</a>
 	</div>
 
-	<div class="wrapper">
-	<div class="outer">
-		<div class="content animated fadeInLeft">
-			<span class="bg animated fadeInDown">NEW</span>
+	<div class="bg-contact3" style="background-image: url('images/bg7.jpg');">
+		<div class="container-contact3">
 
-			<h1 id="name"></h1>
 
-			<p id="details"></p>
-<br><br>
-			<div class="button">
-				<a href="#"><h10 id="fees"></h10></a><a class="cart-btn" href="#" id="accept"><i class="cart-icon ion-bag"></i>ACCEPT COURSE REQ</a>
+			<div class="wrap-contact3">
+				<form class="contact3-form validate-form">
+					<span class="contact3-form-title">
+						Add a Course
+					</span>
+
+
+
+
+
+					<div class="wrap-input3 validate-input" data-validate = "Your name is required">
+						<input class="input3" type="text" name="reqname" id="reqname" placeholder="Your Name">
+						<span class="focus-input3"></span>
+					</div>
+
+
+					<div class="wrap-input3 validate-input" data-validate = "Course name is required">
+						<input class="input3" type="text" name="coursename" id="coursename" placeholder="Course Name">
+						<span class="focus-input3"></span>
+					</div>
+
+
+
+					<div class="wrap-input3 validate-input" data-validate = "Course Details are required">
+						<input class="input3" type = "text" name="details" id="details" placeholder="Please describe the details">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div>
+						<input class="input3" type="number" id="fees" name="fees" placeholder="How much do you want it to sell for?">
+						<span class="focus-input3"></span>
+					</div>
+
+
+					<div class="container-contact3-form-btn">
+						<button id="Submit" class="contact3-form-btn">
+							Submit
+						</button>
+					</div>
+				</form>
 			</div>
-
 		</div>
-		<img src="https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png	" width="300px" class="animated fadeInRight">
 	</div>
-	<p class="footer">Proffeth</p>
-</div>
+
+
+	<div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -426,23 +457,9 @@ switch (netId) {
 ]);
 var test = testContract.at("0x51db852d749a98a2f91e6d085642c6e68faecbb9");
 console.log(test);
-var courseid=parent.document.URL.substring(37,parent.document.URL.length);
 
-console.log(courseid);
-test.viewcourserequestswithdetails(courseid,function(error,result){
-if(!error)
-{
-	$("#name").html(result[1]);
-	$("#details").html(result[2]);
-	$("#fees").html("ETH: "+result[3]);
-}
-else {
-	console.log(error);
-}
-});
-
-$("#accept").click(function() {
-	test.acceptcoursereq(courseid,(error,result) => (console.log(result)));
+$("#Submit").click(function() {
+	test.newcourse($("#reqname").val(),$("#coursename").val(),$("#details").val(),$("#fees").val(),(error,result) => (console.log(result)));
 });
 
 </script>

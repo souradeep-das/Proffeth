@@ -44,6 +44,7 @@ contract education {
   mapping (bytes32 => string[]) coursetovid;
   mapping (address => bytes32[]) usertocourse;
   mapping (bytes32 => course) coursedetailmapping;
+  mapping (address => string) addresstoname;
 
   /*
   function register_user(string name,string email,string password) {
@@ -52,14 +53,14 @@ contract education {
   */
 
   bytes32[] requestedcourses;
-  function request_course(string name,string details) payable {
+  function request_course(string reqname,string name,string details) payable {
     bytes32 id =keccak256(name,msg.sender);
     coursemapping[msg.sender]=coursereq(id,name,details,msg.value,msg.sender,false,0);
     idtocoursemapping[id]=coursereq(id,name,details,msg.value,msg.sender,false,0);
     requestedcourses.push(id);
     coursetobid[id]=[0];
     coursetovid[id]=["0"];
-
+    addresstoname[msg.sender]=reqname;
   }
 
   function viewcourserequests() constant returns(bytes32[]) {
@@ -107,12 +108,13 @@ contract education {
   }
 
 
-  function newcourse(string name,string description,uint fees) {
+  function newcourse(string reqname,string name,string description,uint fees) {
     bytes32 id =keccak256(name,msg.sender);
     coursetovid[id]=["0"];
     courseadding[id]=course(id,name,description,fees,msg.sender);
     allcourses.push(id);
     coursedetailmapping[id]= course(id,name,description,fees,msg.sender);
+    addresstoname[msg.sender]=reqname;
   }
 
   function addvideotocourse(bytes32 id,string vid) {
@@ -128,8 +130,8 @@ contract education {
     return allcourses;
   }
 
-  function showcoursebyid(bytes32 id) constant returns(string,string,uint,address) {
-    return (coursedetailmapping[id].name,coursedetailmapping[id].details,coursedetailmapping[id].fees,coursedetailmapping[id].trainer);
+  function showcoursebyid(bytes32 id) constant returns(bytes32,string,string,uint,address,string) {
+    return (coursedetailmapping[id].courseid,coursedetailmapping[id].name,coursedetailmapping[id].details,coursedetailmapping[id].fees,coursedetailmapping[id].trainer,addresstoname[coursedetailmapping[id].trainer]);
   }
 
 
