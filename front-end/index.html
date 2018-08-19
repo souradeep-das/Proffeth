@@ -176,11 +176,51 @@ switch (netId) {
 				"type": "bytes32"
 			},
 			{
+				"name": "vid",
+				"type": "string"
+			}
+		],
+		"name": "addvideotocourse",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			},
+			{
 				"name": "amount",
 				"type": "uint256"
 			}
 		],
 		"name": "bidforcourse",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"name": "fees",
+				"type": "uint256"
+			}
+		],
+		"name": "newcourse",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -205,9 +245,37 @@ switch (netId) {
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "takecourse",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"payable": true,
 		"stateMutability": "payable",
 		"type": "fallback"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showallcourses",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"constant": true,
@@ -249,6 +317,37 @@ switch (netId) {
 			{
 				"name": "",
 				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "showcoursebyid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -336,7 +435,7 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0xe31f67fF719617FB9A3B0d3C0B988B5a67d0c1a6");
+var test = testContract.at("0xA965A099d5E5F35b802Fc507Dc2ceFC4Bc6Be16A");
 console.log(test);
 
 $("#Submit").click(function() {

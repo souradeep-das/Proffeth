@@ -8,8 +8,6 @@
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/custom-styles.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -20,9 +18,9 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/new.css">
+  <link rel="stylesheet" type="text/css" href="css/navbar.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/soda.css">
 
 <!--===============================================================================================-->
   <script src="./node_modules/web3/dist/web3.min.js"></script>
@@ -32,22 +30,28 @@
 	<div class="topnav">
 	  <a href="/index.html">Home</a>
 	  <a href="#courses">Courses</a>
-	  <a class="active" href="#courserequests">Course Requests</a>
+	  <a class="active" href="/coursedetails.html">Course Requests</a>
 	  <a href="#about">About</a>
 	</div>
-	<br><br>
 
-<div id="box">
+	<div class="wrapper">
+	<div class="outer">
+		<div class="content animated fadeInLeft">
+			<span class="bg animated fadeInDown">NEW</span>
 
+			<h1 id="name"></h1>
 
+			<p id="details"></p>
+<br><br>
+			<div class="button">
+				<a href="#"><h10 id="fees"></h10></a><a class="cart-btn" href="#" id="accept"><i class="cart-icon ion-bag"></i>ACCEPT COURSE REQ</a>
+			</div>
 
+		</div>
+		<img src="https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png	" width="300px" class="animated fadeInRight">
+	</div>
+	<p class="footer">Proffeth</p>
 </div>
-
-	<div class="bg-contact3" style="background-image: url('images/bg7.jpg');">
-
-
-
-
 
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -57,9 +61,6 @@
 <!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
-
-
 	<script>
 		 if(typeof web3 !== 'undefined') {
 			 console.log("Unlock MetaMask");
@@ -409,40 +410,24 @@ switch (netId) {
 ]);
 var test = testContract.at("0xA965A099d5E5F35b802Fc507Dc2ceFC4Bc6Be16A");
 console.log(test);
+var courseid=parent.document.URL.substring(37,parent.document.URL.length);
 
-test.viewcourserequests(function(error,result1) {
-	if(!error)
-	{
-
-
-
-var html = "<div class=\"row\">";
-for(var j = 0; j < result1.length; j++) {
-		console.log('hello')
-
-test.viewcourserequestswithdetails(result1[j],function(error,result){
-
-      if(!result[5])
-			{
-			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-8\">" + "<kbd style=\"background-color:rgb(0, 197, 50);\"\">Name :</kbd>  "+ result[1] + "<br>"   +  "<kbd style=\"background-color:rgb(0, 236, 50);\"\">Fee :</kbd>  "+ result[3]   + "<br><img src=\"https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png\"" + "<br><center><a href=\"coursepay.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-success\">Accept</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
-			document.getElementById("box").innerHTML = html;
-}
-
-});
-
-	 }
-
+console.log(courseid);
+test.viewcourserequestswithdetails(courseid,function(error,result){
+if(!error)
+{
+	$("#name").html(result[1]);
+	$("#details").html(result[2]);
+	$("#fees").html("ETH: "+result[3]);
 }
 else {
 	console.log(error);
 }
 });
 
-
-
-
-
-
+$("#accept").click(function() {
+	test.acceptcoursereq(courseid,(error,result) => (console.log(result)));
+});
 
 </script>
 <!--===============================================================================================-->

@@ -48,24 +48,22 @@
 
 
 					<div class="wrap-input3 validate-input" data-validate = "Name is required">
-						<input class="input3" type="text" name="name" placeholder="Your Name">
+						<input class="input3" type="text" name="coursename" placeholder="Course Name">
 						<span class="focus-input3"></span>
 					</div>
 
-					<div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input3" type="text" name="email" placeholder="Your Email">
-						<span class="focus-input3"></span>
-					</div>
 
-					<div class="wrap-input3 validate-input" data-validate = "Course Name is required">
-						<input class="input3" type="text" id="coursename" name="course" placeholder="What ya wanna learn?">
-						<span class="focus-input3"></span>
-					</div>
 
 					<div class="wrap-input3 validate-input" data-validate = "Course Details are required">
-						<input class="input3" name="details" id="details" placeholder="Please describe your requirements">
+						<input class="input3" name="details" id="details" placeholder="Please describe the details">
 						<span class="focus-input3"></span>
 					</div>
+
+					<div class="wrap-input3 validate-input" data-validate = "Fee is required">
+						<input class="input3" type="text" id="fees" name="fees" placeholder="How much do you want it to sell for?">
+						<span class="focus-input3"></span>
+					</div>
+
 
 					<div class="container-contact3-form-btn">
 						<button id="Submit" class="contact3-form-btn">
@@ -176,11 +174,51 @@ switch (netId) {
 				"type": "bytes32"
 			},
 			{
+				"name": "vid",
+				"type": "string"
+			}
+		],
+		"name": "addvideotocourse",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			},
+			{
 				"name": "amount",
 				"type": "uint256"
 			}
 		],
 		"name": "bidforcourse",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"name": "fees",
+				"type": "uint256"
+			}
+		],
+		"name": "newcourse",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -205,9 +243,37 @@ switch (netId) {
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "takecourse",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"payable": true,
 		"stateMutability": "payable",
 		"type": "fallback"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showallcourses",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"constant": true,
@@ -249,6 +315,37 @@ switch (netId) {
 			{
 				"name": "",
 				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "showcoursebyid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -336,11 +433,11 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0xe31f67fF719617FB9A3B0d3C0B988B5a67d0c1a6");
+var test = testContract.at("0xA965A099d5E5F35b802Fc507Dc2ceFC4Bc6Be16A");
 console.log(test);
 
 $("#Submit").click(function() {
-	test.request_course($("#coursename").val(),$("#details").val(),(error,result) => (console.log(result)));
+	test.newcourse($("#coursename").val(),$("#details").val(),$("#fees").val(),(error,result) => (console.log(result)));
 });
 
 </script>
