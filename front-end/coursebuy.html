@@ -29,9 +29,10 @@
 
 	<div class="topnav">
 	  <a href="/index.html">Home</a>
-	  <a href="#courses">Courses</a>
-	  <a class="active" href="/coursedetails.html">Course Requests</a>
+	  <a class="active" href="#courses">Courses</a>
+	  <a href="/coursedetails.html">Course Requests</a>
 	  <a href="#about">About</a>
+    <a href="addcourses.html">Add a Course</a>
 	</div>
 
 	<div class="wrapper">
@@ -44,7 +45,7 @@
 			<p id="details"></p>
 <br><br>
 			<div class="button">
-				<a href="#"><h10 id="fees"></h10></a><a class="cart-btn" href="#" id="accept"><i class="cart-icon ion-bag"></i>ACCEPT COURSE REQ</a>
+				<a href="#"><h10 id="fees"></h10></a><a class="cart-btn" href="#" id="accept"><i class="cart-icon ion-bag"></i>BUY COURSE</a>
 			</div>
 
 		</div>
@@ -434,16 +435,17 @@ if(!error)
 {
 	$("#name").html(result[1]);
 	$("#details").html(result[2]);
-	$("#fees").html("ETH: "+result[3]);
+	$("#fees").html("WEI: "+result[3]);
+  $("#accept").click(function() {
+  	test.takecourse(courseid,{from: web3.eth.accounts[0], gas: 3000000, value: result[3]},(error,result) => (console.log(result)));
+  });
 }
 else {
 	console.log(error);
 }
 });
 
-$("#accept").click(function() {
-	test.takecourse(courseid,(error,result) => (console.log(result)));
-});
+
 
 </script>
 <!--===============================================================================================-->

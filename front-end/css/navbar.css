@@ -1,6 +1,6 @@
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #18351a;
+    background-color: #474f48;
     overflow: hidden;
 }
 
@@ -25,4 +25,3 @@
     background-color: #57b846;
     color: white;
 }
-

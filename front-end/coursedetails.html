@@ -31,9 +31,10 @@
 
 	<div class="topnav">
 	  <a href="/index.html">Home</a>
-	  <a href="#courses">Courses</a>
+	  <a href="courses.html">Courses</a>
 	  <a class="active" href="#courserequests">Course Requests</a>
 	  <a href="#about">About</a>
+		<a href="addcourses.html">Add a Course</a>
 	</div>
 	<br><br>
 
@@ -440,7 +441,7 @@ test.viewcourserequestswithdetails(result1[j],function(error,result){
 
       if(!result[5])
 			{
-			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-8\">" + "<kbd style=\"background-color:rgb(0, 197, 50);\"\">Name :</kbd>  "+ result[1] + "<br>"   +  "<kbd style=\"background-color:rgb(0, 236, 50);\"\">Fee :</kbd>  "+ result[3]   + "<br><img src=\"https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png\"" + "<br><center><a href=\"coursepay.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-success\">Accept</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
+			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-8\">" + "<kbd style=\"background-color:rgb(104, 100, 100);\"\">Name :</kbd>  "+ result[1] + "<br>"   +  "<kbd style=\"background-color:rgb(122, 123, 124);\"\">Fee :</kbd>  "+ result[3]   + "<br><img src=\"https://s15.postimg.cc/55n0wpb8b/grayscale_image.png\"" + "<br><center><a href=\"coursepay.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-secondary\">Accept</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
 			document.getElementById("box").innerHTML = html;
 }
 
