@@ -45,6 +45,8 @@ contract education {
   mapping (address => bytes32[]) usertocourse;
   mapping (bytes32 => course) coursedetailmapping;
   mapping (address => string) addresstoname;
+  mapping (address => bytes32[]) usertocreated;
+  mapping (address => bytes32[]) usertoreq;
 
   /*
   function register_user(string name,string email,string password) {
@@ -61,6 +63,7 @@ contract education {
     coursetobid[id]=[0];
     coursetovid[id]=["0"];
     addresstoname[msg.sender]=reqname;
+    usertoreq[msg.sender].push(id);
   }
 
   function viewcourserequests() constant returns(bytes32[]) {
@@ -74,6 +77,7 @@ contract education {
   function acceptcoursereq(bytes32 id) {
     idtocoursemapping[id].accepted=true;
     idtocoursemapping[id].teacher_add=msg.sender;
+    usertocreated[msg.sender].push(id);
 
   }
 
@@ -115,6 +119,7 @@ contract education {
     allcourses.push(id);
     coursedetailmapping[id]= course(id,name,description,fees,msg.sender);
     addresstoname[msg.sender]=reqname;
+    usertocreated[msg.sender].push(id);
   }
 
   function addvideotocourse(bytes32 id,string vid) {
@@ -131,7 +136,7 @@ contract education {
   }
 
   function showcoursebyid(bytes32 id) constant returns(bytes32,string,string,uint,address,string) {
-    return (coursedetailmapping[id].courseid,coursedetailmapping[id].name,coursedetailmapping[id].details,coursedetailmapping[id].fees,coursedetailmapping[id].trainer,addresstoname[coursedetailmapping[id].trainer);
+    return (coursedetailmapping[id].courseid,coursedetailmapping[id].name,coursedetailmapping[id].details,coursedetailmapping[id].fees,coursedetailmapping[id].trainer,addresstoname[coursedetailmapping[id].trainer]);
   }
 
 

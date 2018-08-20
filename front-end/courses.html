@@ -424,7 +424,7 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0x51db852d749a98a2f91e6d085642c6e68faecbb9");
+var test = testContract.at("0xBfCa9ECAcD668eE532A54a8bf69e0E65Cb9e3C66");
 console.log(test);
 
 test.showallcourses(function(error,result1) {
@@ -440,7 +440,7 @@ for(var j = 0; j < result1.length; j++) {
 test.showcoursebyid(result1[j],function(error,result){
 
 
-			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-20\">" + "<kbd style=\"background-color:rgb(0, 150, 50);\"\">Name :</kbd>  "+ result[1] + "<br><kbd style=\"background-color:rgb(0, 197, 50);\"\">Details :</kbd>  "+ result[2] + "<br>"   +  "<kbd style=\"background-color:rgb(0, 221, 50);\"\">Fee :</kbd>  "+ result[3] +  "<br><kbd style=\"background-color:rgb(0, 221, 50);\"\">Trainer :</kbd>  "+ result[5]  + "<br><img src=\"https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png\"" + "<br><center><a href=\"coursebuy.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-success\">Accept</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
+			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-9\">" + "<kbd style=\"background-color:rgb(0, 150, 50);\"\">Name :</kbd>  "+ result[1] +  "<br>"   +  "<kbd style=\"background-color:rgb(0, 197, 50);\"\">Fee :</kbd>  "+ result[3] +  "<br><kbd style=\"background-color:rgb(0, 232, 50);\"\">Trainer :</kbd>  "+ result[5]  + "<br><img src=\"https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png\"" + "<br><center><a href=\"coursebuy.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-success\">Accept</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
 			document.getElementById("box").innerHTML = html;
 
 
