@@ -32,6 +32,7 @@
 	  <a href="coursedetails.html">Course Requests</a>
 	  <a href="#about">About</a>
 		<a href="addcourses.html">Add a Course</a>
+		<a href="learner.html">Dashboard</a>
 	</div>
 
 	<div class="bg-contact3" style="background-image: url('images/bg1.jpg');">
@@ -65,6 +66,11 @@
 
 					<div class="wrap-input3 validate-input" data-validate = "Course Details are required">
 						<input class="input3" name="details" id="details" placeholder="Please describe your requirements">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div>
+						<input class="input3" type="number" id="amt" name="amt" placeholder="Amount you are willing to pay?">
 						<span class="focus-input3"></span>
 					</div>
 
@@ -127,20 +133,6 @@ switch (netId) {
 		"constant": false,
 		"inputs": [
 			{
-				"name": "bidder",
-				"type": "address"
-			}
-		],
-		"name": "acceptbid",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
 				"name": "id",
 				"type": "bytes32"
 			}
@@ -191,24 +183,6 @@ switch (netId) {
 		"constant": false,
 		"inputs": [
 			{
-				"name": "id",
-				"type": "bytes32"
-			},
-			{
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "bidforcourse",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
 				"name": "reqname",
 				"type": "string"
 			},
@@ -226,6 +200,20 @@ switch (netId) {
 			}
 		],
 		"name": "newcourse",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "removereq",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -294,52 +282,6 @@ switch (netId) {
 				"type": "bytes32"
 			}
 		],
-		"name": "showbid",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "bidder",
-				"type": "address"
-			}
-		],
-		"name": "showbiddetails",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "address"
-			},
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "id",
-				"type": "bytes32"
-			}
-		],
 		"name": "showcoursebyid",
 		"outputs": [
 			{
@@ -365,6 +307,34 @@ switch (netId) {
 			{
 				"name": "",
 				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showmycoursereq",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showmycourses",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
 			}
 		],
 		"payable": false,
@@ -452,11 +422,11 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0xBfCa9ECAcD668eE532A54a8bf69e0E65Cb9e3C66");
+var test = testContract.at("0x2D1ddC2aaBc3E1c2bCcf0B2E3e7CB432587C6906");
 console.log(test);
 
 $("#Submit").click(function() {
-	test.request_course($("#name").val(),$("#coursename").val(),$("#details").val(),(error,result) => (console.log(result)));
+	test.request_course($("#name").val(),$("#coursename").val(),$("#details").val(),{from: web3.eth.accounts[0], gas: 3000000, value: $("#amt").val()},(error,result) => (console.log(result)));
 });
 
 </script>

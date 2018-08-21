@@ -81,27 +81,17 @@ contract education {
 
   }
 
-  function  bidforcourse(bytes32 id,uint amount) {
-    addresstobid[msg.sender]=bid(id,amount,msg.sender,false);
-    coursetobid[id].push(msg.sender);
+  function showmycourses() constant returns(bytes32[]){
+    return usertocourse[msg.sender];
   }
 
-  function showbid(bytes32 id) constant returns(address[]){
-      return coursetobid[id];
-  }
+ function showmycoursereq() constant returns(bytes32[]) {
+   return usertoreq[msg.sender];
+ }
 
-  function  showbiddetails(address bidder) constant returns(uint,address,bool) {
-    return (addresstobid[bidder].amount,addresstobid[bidder].bidder,addresstobid[bidder].accepted);
-  }
-
-  function acceptbid(address bidder) {
-    addresstobid[bidder].accepted=true;
-    idtocoursemapping[addresstobid[bidder].courseid].accepted=true;
-    idtocoursemapping[addresstobid[bidder].courseid].teacher_add=bidder;
-
-  }
-
-
+ function removereq(bytes32 id) {
+   idtocoursemapping[id].accepted=true;
+ }
   function addvideo(bytes32 reqid,string vidhash) {
     require(idtocoursemapping[reqid].teacher_add==msg.sender);
     coursetovid[reqid].push(vidhash);

@@ -30,65 +30,452 @@
   <script src="./node_modules/web3/dist/web3.min.js"></script>
 </head>
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <body>
+	<div class="topnav">
+		<a href="/index.html">Home</a>
+		<a href="courses.html">Courses</a>
+		<a href="coursedetails.html">Course Requests</a>
+		<a href="#about">About</a>
+		<a href="addcourses.html">Add a Course</a>
+	  <a class="active" href="learner.html">Dashboard</a>
+	</div>
+
 
     <!-- Page Content -->
 
-    <div class="container page-top">
 
+    <div class="container page-top">
+  <h1><center>Your Courses!</h1>
         <div class="container">
-            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="1000">
                 <div id="enter" class="carousel-inner row w-100 mx-auto" role="listbox">
 
-                </div>
+
+                  </div>
                 <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                     <span class="sr-only">Previous</span>
-                 </a>
-                 <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                     <span class="sr-only">Next</span>
-                 </a>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-        </div>
-      </div>
+        
 
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script>$('#carouselExample').on('slide.bs.carousel', function(e) {
-
-                var $e = $(e.relatedTarget);
-                var idx = $e.index();
-                var itemsPerSlide = 4;
-                var totalItems = 10;
-
-                if (idx >= totalItems - (itemsPerSlide - 1)) {
-                    var it = itemsPerSlide - (totalItems - idx);
-                    for (var i = 0; i < it; i++) {
-                        // append slides to end
-                        if (e.direction == "left") {
-                            $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                        } else {
-                            $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                        }
-                    }
-                }
-            });
-
-            $('#carouselExample').carousel({
-                interval: 2000
-            });
-</script>
-<script>
-for(var j=0;j<10;j++)
-{
-var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div class=\"card-body\"> <div class=\"myback-img \"> <img src=\"https://images.pexels.com/photos/907267/pexels-photo-907267.jpeg?auto=compress&cs=tinysrgb&h=350\" class=\"\"> </div> <div class=\"myoverlay\"></div> <div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"https://images.pexels.com/photos/907267/pexels-photo-907267.jpeg?auto=compress&cs=tinysrgb&h=350\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>Diane</h3> </a> </div> </div> </div> </div>");
-html.appendTo('#enter');
-}
+				<div class="container page-top">
+			<h1><center>Your Course Requests!</h1>
+						<div class="container">
+								<div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="1000">
+										<div id="enter2" class="carousel-inner row w-100 mx-auto" role="listbox">
 
 
+											</div>
+										<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+												<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+												<span class="sr-only">Previous</span>
+										</a>
+										<a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+												<span class="carousel-control-next-icon" aria-hidden="true"></span>
+												<span class="sr-only">Next</span>
+										</a>
+										<br>
+								</div>
+						</div>
+</div>
+        <script>
 
-</script>
+        if(typeof web3 !== 'undefined') {
+   			 console.log("Unlock MetaMask");
+   			 web3 = new Web3(web3.currentProvider);
+   		 }
+   		 else {
+   			 console.log("Install MetaMask");
+   			 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+   		 }
+   		 web3.version.getNetwork((err, netId) => {
+   switch (netId) {
+   	case "1":
+   		console.log('This is mainnet')
+   		break
+   	case "2":
+   		console.log('This is the deprecated Morden test network.')
+   		break
+   	case "3":
+   		console.log('This is the ropsten test network.')
+   		break
+   	case "4":
+   		console.log('This is the Rinkeby test network.')
+   		break
+   	case "42":
+   		console.log('This is the Kovan test network.')
+   		break
+   	default:
+   		console.log('This is an unknown network.')
+   }
+   })
 
+   		 web3.eth.defaultAccount=web3.eth.accounts[0];
+
+   		 var testContract = web3.eth.contract([
+   	{
+   		"constant": false,
+   		"inputs": [
+   			{
+   				"name": "id",
+   				"type": "bytes32"
+   			}
+   		],
+   		"name": "acceptcoursereq",
+   		"outputs": [],
+   		"payable": false,
+   		"stateMutability": "nonpayable",
+   		"type": "function"
+   	},
+   	{
+   		"constant": false,
+   		"inputs": [
+   			{
+   				"name": "reqid",
+   				"type": "bytes32"
+   			},
+   			{
+   				"name": "vidhash",
+   				"type": "string"
+   			}
+   		],
+   		"name": "addvideo",
+   		"outputs": [],
+   		"payable": false,
+   		"stateMutability": "nonpayable",
+   		"type": "function"
+   	},
+   	{
+   		"constant": false,
+   		"inputs": [
+   			{
+   				"name": "id",
+   				"type": "bytes32"
+   			},
+   			{
+   				"name": "vid",
+   				"type": "string"
+   			}
+   		],
+   		"name": "addvideotocourse",
+   		"outputs": [],
+   		"payable": false,
+   		"stateMutability": "nonpayable",
+   		"type": "function"
+   	},
+   	{
+   		"constant": false,
+   		"inputs": [
+   			{
+   				"name": "reqname",
+   				"type": "string"
+   			},
+   			{
+   				"name": "name",
+   				"type": "string"
+   			},
+   			{
+   				"name": "description",
+   				"type": "string"
+   			},
+   			{
+   				"name": "fees",
+   				"type": "uint256"
+   			}
+   		],
+   		"name": "newcourse",
+   		"outputs": [],
+   		"payable": false,
+   		"stateMutability": "nonpayable",
+   		"type": "function"
+   	},
+   	{
+   		"constant": false,
+   		"inputs": [
+   			{
+   				"name": "id",
+   				"type": "bytes32"
+   			}
+   		],
+   		"name": "removereq",
+   		"outputs": [],
+   		"payable": false,
+   		"stateMutability": "nonpayable",
+   		"type": "function"
+   	},
+   	{
+   		"constant": false,
+   		"inputs": [
+   			{
+   				"name": "reqname",
+   				"type": "string"
+   			},
+   			{
+   				"name": "name",
+   				"type": "string"
+   			},
+   			{
+   				"name": "details",
+   				"type": "string"
+   			}
+   		],
+   		"name": "request_course",
+   		"outputs": [],
+   		"payable": true,
+   		"stateMutability": "payable",
+   		"type": "function"
+   	},
+   	{
+   		"constant": false,
+   		"inputs": [
+   			{
+   				"name": "id",
+   				"type": "bytes32"
+   			}
+   		],
+   		"name": "takecourse",
+   		"outputs": [],
+   		"payable": true,
+   		"stateMutability": "payable",
+   		"type": "function"
+   	},
+   	{
+   		"payable": true,
+   		"stateMutability": "payable",
+   		"type": "fallback"
+   	},
+   	{
+   		"constant": true,
+   		"inputs": [],
+   		"name": "showallcourses",
+   		"outputs": [
+   			{
+   				"name": "",
+   				"type": "bytes32[]"
+   			}
+   		],
+   		"payable": false,
+   		"stateMutability": "view",
+   		"type": "function"
+   	},
+   	{
+   		"constant": true,
+   		"inputs": [
+   			{
+   				"name": "id",
+   				"type": "bytes32"
+   			}
+   		],
+   		"name": "showcoursebyid",
+   		"outputs": [
+   			{
+   				"name": "",
+   				"type": "bytes32"
+   			},
+   			{
+   				"name": "",
+   				"type": "string"
+   			},
+   			{
+   				"name": "",
+   				"type": "string"
+   			},
+   			{
+   				"name": "",
+   				"type": "uint256"
+   			},
+   			{
+   				"name": "",
+   				"type": "address"
+   			},
+   			{
+   				"name": "",
+   				"type": "string"
+   			}
+   		],
+   		"payable": false,
+   		"stateMutability": "view",
+   		"type": "function"
+   	},
+   	{
+   		"constant": true,
+   		"inputs": [],
+   		"name": "showmycoursereq",
+   		"outputs": [
+   			{
+   				"name": "",
+   				"type": "bytes32[]"
+   			}
+   		],
+   		"payable": false,
+   		"stateMutability": "view",
+   		"type": "function"
+   	},
+   	{
+   		"constant": true,
+   		"inputs": [],
+   		"name": "showmycourses",
+   		"outputs": [
+   			{
+   				"name": "",
+   				"type": "bytes32[]"
+   			}
+   		],
+   		"payable": false,
+   		"stateMutability": "view",
+   		"type": "function"
+   	},
+   	{
+   		"constant": true,
+   		"inputs": [
+   			{
+   				"name": "id",
+   				"type": "bytes32"
+   			},
+   			{
+   				"name": "i",
+   				"type": "uint256"
+   			}
+   		],
+   		"name": "showvideos",
+   		"outputs": [
+   			{
+   				"name": "",
+   				"type": "string"
+   			}
+   		],
+   		"payable": false,
+   		"stateMutability": "view",
+   		"type": "function"
+   	},
+   	{
+   		"constant": true,
+   		"inputs": [],
+   		"name": "viewcourserequests",
+   		"outputs": [
+   			{
+   				"name": "",
+   				"type": "bytes32[]"
+   			}
+   		],
+   		"payable": false,
+   		"stateMutability": "view",
+   		"type": "function"
+   	},
+   	{
+   		"constant": true,
+   		"inputs": [
+   			{
+   				"name": "id",
+   				"type": "bytes32"
+   			}
+   		],
+   		"name": "viewcourserequestswithdetails",
+   		"outputs": [
+   			{
+   				"name": "",
+   				"type": "bytes32"
+   			},
+   			{
+   				"name": "",
+   				"type": "string"
+   			},
+   			{
+   				"name": "",
+   				"type": "string"
+   			},
+   			{
+   				"name": "",
+   				"type": "uint256"
+   			},
+   			{
+   				"name": "",
+   				"type": "address"
+   			},
+   			{
+   				"name": "",
+   				"type": "bool"
+   			},
+   			{
+   				"name": "",
+   				"type": "address"
+   			}
+   		],
+   		"payable": false,
+   		"stateMutability": "view",
+   		"type": "function"
+   	}
+   ]);
+   var test = testContract.at("0x2D1ddC2aaBc3E1c2bCcf0B2E3e7CB432587C6906");
+   console.log(test);
+
+test.showmycourses(function(error,result1) {
+  if(!error)
+  {
+		if(result1.length==0)
+		{
+			var html=$("<h4>------------------------------------------------------->No courses Registered<----------------------------------------------</h4>");
+			html.appendTo('#enter');
+		}
+		else {
+
+
+    for(var j=0;j<result1.length;j++)
+    {
+      test.showcoursebyid(result1[j],function(error,result){
+        var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div class=\"card-body\"> <div class=\"myback-img \"> <img src=\"https://media.wired.com/photos/5a064a2bdfd4384b7ad1d8ba/master/w_2400,c_limit/roundup-TA.jp\" class=\"\"> </div> <div class=\"myoverlay\"> <kbd style=\"background-color:rgb(21, 84, 58);\"\">Trainer :</kbd><h3><font color=\"white\"> " + result[5]  +"</font></h3></div> <div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"http://www.uidownload.com/files/35/391/678/graduation-hat-thumb.jpg\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>"+ result[1]+"</h3> </a> </div> </div> </div> </div>");
+        html.appendTo('#enter');
+      });
+    }
+	}
+  }
+  else {
+    console.log(error);
+  }
+});
+
+
+test.showmycoursereq(function(error,result1) {
+  if(!error)
+  {
+		if(result1.length==0)
+		{
+			var html=$("<h4>------------------------------------------------------->No courses Requests<----------------------------------------------</h4>");
+			html.appendTo('#enter2');
+		}
+		else {
+    for(var j=0;j<result1.length;j++)
+    {
+
+      test.viewcourserequestswithdetails(result1[j],function(error,result){
+				if(result[5])
+				{
+        var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div class=\"card-body\"> <div class=\"myback-img \"> <img src=\"https://i2.wp.com/dashmasternode.org/wp-content/uploads/2016/03/ethereum-wallpaper.jpg\" class=\"\"> </div> <div class=\"myoverlay\"> <kbd style=\"background-color:rgb(27, 28, 27);\"\">Fees Offered:</kbd><h3><font color=\"black\"> " + result[3]  +"</font></h3></div> <div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_nNdgqrbBHI5zpoChwNFVxAsxZlDz6qdwPuGxDHVo9IKN1Ity\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>"+ result[1]+"</h3> </a> </div> </div> </div> </div>");
+        html.appendTo('#enter2');
+			}
+			else {
+				var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div class=\"card-body\"> <div class=\"myback-img \"> <img src=\"https://i2.wp.com/dashmasternode.org/wp-content/uploads/2016/03/ethereum-wallpaper.jpg\" class=\"\"> </div> <div class=\"myoverlay\"> <kbd style=\"background-color:rgb(27, 28, 27);\"\">Fees Offered:</kbd><h3><font color=\"black\"> " + result[3]  +"</font></h3></div> <div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/VCHXZQKsxil3lhgr4/animation-loading-circle-icon-on-white-background-with-alpha-channel-4k-video_signndt9ox_thumbnail-small01.jpg\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>"+ result[1]+"</h3> </a> </div> </div> </div> </div>");
+				html.appendTo('#enter2');
+			}
+      });
+    }
+	}
+  }
+  else {
+    console.log(error);
+  }
+});
+        </script>
     </body>
