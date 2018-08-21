@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/custom-styles.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/profile.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<!--===============================================================================================-->
+  <script src="./node_modules/web3/dist/web3.min.js"></script>
+</head>
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<body>
+
+    <!-- Page Content -->
+
+    <div class="container page-top">
+
+        <div class="container">
+            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+                <div id="enter" class="carousel-inner row w-100 mx-auto" role="listbox">
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Previous</span>
+                 </a>
+                 <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Next</span>
+                 </a>
+            </div>
+        </div>
+      </div>
+
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script>$('#carouselExample').on('slide.bs.carousel', function(e) {
+
+                var $e = $(e.relatedTarget);
+                var idx = $e.index();
+                var itemsPerSlide = 4;
+                var totalItems = 10;
+
+                if (idx >= totalItems - (itemsPerSlide - 1)) {
+                    var it = itemsPerSlide - (totalItems - idx);
+                    for (var i = 0; i < it; i++) {
+                        // append slides to end
+                        if (e.direction == "left") {
+                            $('.carousel-item').eq(i).appendTo('.carousel-inner');
+                        } else {
+                            $('.carousel-item').eq(0).appendTo('.carousel-inner');
+                        }
+                    }
+                }
+            });
+
+            $('#carouselExample').carousel({
+                interval: 2000
+            });
+</script>
+<script>
+for(var j=0;j<10;j++)
+{
+var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div class=\"card-body\"> <div class=\"myback-img \"> <img src=\"https://images.pexels.com/photos/907267/pexels-photo-907267.jpeg?auto=compress&cs=tinysrgb&h=350\" class=\"\"> </div> <div class=\"myoverlay\"></div> <div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"https://images.pexels.com/photos/907267/pexels-photo-907267.jpeg?auto=compress&cs=tinysrgb&h=350\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>Diane</h3> </a> </div> </div> </div> </div>");
+html.appendTo('#enter');
+}
+
+
+
+</script>
+
+    </body>
