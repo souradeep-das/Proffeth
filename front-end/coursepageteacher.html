@@ -23,41 +23,11 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
+  <link rel="stylesheet" type="text/css" href="css/video.css">
+
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <style>
-.button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  position: relative;
-    left:220px;
-    top:80px;
 
-}
-h3 {
-    position: relative;
-    left: 90px;
-    top: 138px;
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-</style>
 <!--===============================================================================================-->
   <script src="./node_modules/web3/dist/web3.min.js"></script>
 </head>
@@ -82,8 +52,22 @@ h3 {
 
     <!-- Page Content -->
 <br><br>
-<h1 id="cname"><center>Course Details</h1>
+<center><h1 id="cname"></h1><br><br>
+  <div class="container">
+  	<div class="login-container">
+              <div id="output"></div>
+              <div class="avatar" ></div>
+              <br><h5>Enter IPFS hash</h5>
+              <div class="form-box">
+                  <form action="" method="">
+                      <input name="user" type="text" placeholder="username">
 
+                      <button class="btn btn-info btn-block login" type="submit">Submit</button>
+                  </form>
+              </div>
+          </div>
+
+  </div>
         <script>
         if(typeof web3 !== 'undefined') {
          console.log("Unlock MetaMask");
@@ -450,33 +434,18 @@ h3 {
 
       console.log(courseid);
 
-      // test.viewcourserequestswithdetails(courseid,function(error,result){
-      //   if(!error)
-      //   {
-      //     console.log(result);
-      //      $("#cname").html(result);
-      //   }
-      //   else {
-      //     console.log(error);
-      //   }
-      // });
+       test.showcoursebyid(courseid,function(error,result){
+         if(!error)
+         {
+          console.log(result[1]);
+           $("#cname").html("Course : "+ result[1]);
+        }
+        else {
+          console.log(error);
+        }
+      });
 
-test.showallvideos(courseid,function(error,result){
-  if(!error)
-  {
-    for(var j=1;j<result;j++)
-    {
-      test.showvideos(courseid,j,function(error,result1){
 
-    var html=$("<h3> Link --> </h3><a href=\"https://ipfs.io/ipfs/"+result1+"\"><button class=\"button\">Click Me</button></a><br><br>");
-    html.appendTo('body');
-  });
-  }
-  }
-  else {
-    console.log(error);
-  }
-});
 
         </script>
     </body>

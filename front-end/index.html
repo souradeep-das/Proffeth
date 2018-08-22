@@ -33,6 +33,7 @@
 	  <a href="#about">About</a>
 		<a href="addcourses.html">Add a Course</a>
 		<a href="learner.html">Dashboard</a>
+		<a href="teacher.html">Teacher Dashboard</a>
 	</div>
 
 	<div class="bg-contact3" style="background-image: url('images/bg1.jpg');">
@@ -335,6 +336,20 @@ switch (netId) {
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "showcreatedcourse",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "showmycoursereq",
 		"outputs": [
 			{
@@ -441,7 +456,7 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0x9AAe389d61125FD4551403c36e28dCD87Cc2c588");
+var test = testContract.at("0x741229Fdf311Cf40c70FC82482f872E66fEfF880");
 console.log(test);
 
 $("#Submit").click(function() {

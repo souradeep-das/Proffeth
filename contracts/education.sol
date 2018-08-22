@@ -81,6 +81,10 @@ contract education {
 
   }
 
+
+function showcreatedcourse() constant returns(bytes32[]) {
+  return usertocreated[msg.sender];
+}
   function showmycourses() constant returns(bytes32[]){
     return usertocourse[msg.sender];
   }

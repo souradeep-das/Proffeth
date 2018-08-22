@@ -303,6 +303,20 @@ switch (netId) {
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "showcreatedcourse",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "showmycoursereq",
 		"outputs": [
 			{
@@ -409,7 +423,7 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0x9AAe389d61125FD4551403c36e28dCD87Cc2c588");
+var test = testContract.at("0x741229Fdf311Cf40c70FC82482f872E66fEfF880");
 console.log(test);
 var courseid=parent.document.URL.substring(37,parent.document.URL.length);
 

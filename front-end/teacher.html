@@ -25,39 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <style>
-.button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  position: relative;
-    left:220px;
-    top:80px;
 
-}
-h3 {
-    position: relative;
-    left: 90px;
-    top: 138px;
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-</style>
 <!--===============================================================================================-->
   <script src="./node_modules/web3/dist/web3.min.js"></script>
 </head>
@@ -68,7 +36,7 @@ h3 {
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 
 
-
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <body>
 	<div class="topnav">
 		<a href="/index.html">Home</a>
@@ -81,43 +49,63 @@ h3 {
 
 
     <!-- Page Content -->
-<br><br>
-<h1 id="cname"><center>Course Details</h1>
+
+
+    <div class="container page-top">
+  <h1><center>Courses you teach!</h1>
+        <div class="container">
+            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="1000">
+                <div id="enter" class="carousel-inner row w-100 mx-auto" role="listbox">
+
+
+                  </div>
+                <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+
 
         <script>
+
         if(typeof web3 !== 'undefined') {
-         console.log("Unlock MetaMask");
-         web3 = new Web3(web3.currentProvider);
-       }
-       else {
-         console.log("Install MetaMask");
-         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-       }
-       web3.version.getNetwork((err, netId) => {
-      switch (netId) {
-      case "1":
-      console.log('This is mainnet')
-      break
-      case "2":
-      console.log('This is the deprecated Morden test network.')
-      break
-      case "3":
-      console.log('This is the ropsten test network.')
-      break
-      case "4":
-      console.log('This is the Rinkeby test network.')
-      break
-      case "42":
-      console.log('This is the Kovan test network.')
-      break
-      default:
-      console.log('This is an unknown network.')
-      }
-      })
+   			 console.log("Unlock MetaMask");
+   			 web3 = new Web3(web3.currentProvider);
+   		 }
+   		 else {
+   			 console.log("Install MetaMask");
+   			 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+   		 }
+   		 web3.version.getNetwork((err, netId) => {
+   switch (netId) {
+   	case "1":
+   		console.log('This is mainnet')
+   		break
+   	case "2":
+   		console.log('This is the deprecated Morden test network.')
+   		break
+   	case "3":
+   		console.log('This is the ropsten test network.')
+   		break
+   	case "4":
+   		console.log('This is the Rinkeby test network.')
+   		break
+   	case "42":
+   		console.log('This is the Kovan test network.')
+   		break
+   	default:
+   		console.log('This is an unknown network.')
+   }
+   })
 
-       web3.eth.defaultAccount=web3.eth.accounts[0];
+   		 web3.eth.defaultAccount=web3.eth.accounts[0];
 
-       var testContract = web3.eth.contract([
+   		 var testContract = web3.eth.contract([
 	{
 		"constant": false,
 		"inputs": [
@@ -444,39 +432,35 @@ h3 {
 		"type": "function"
 	}
 ]);
-      var test = testContract.at("0x741229Fdf311Cf40c70FC82482f872E66fEfF880");
-      console.log(test);
-      var courseid=parent.document.URL.substring(45,parent.document.URL.length);
+   var test = testContract.at("0x741229Fdf311Cf40c70FC82482f872E66fEfF880");
+   console.log(test);
 
-      console.log(courseid);
-
-      // test.viewcourserequestswithdetails(courseid,function(error,result){
-      //   if(!error)
-      //   {
-      //     console.log(result);
-      //      $("#cname").html(result);
-      //   }
-      //   else {
-      //     console.log(error);
-      //   }
-      // });
-
-test.showallvideos(courseid,function(error,result){
+test.showcreatedcourse(function(error,result1) {
   if(!error)
   {
-    for(var j=1;j<result;j++)
-    {
-      test.showvideos(courseid,j,function(error,result1){
+		if(result1.length==0)
+		{
+			var html=$("<h4>------------------------------------------------------->No courses Teaching<----------------------------------------------</h4>");
+			html.appendTo('#enter');
+		}
+		else {
 
-    var html=$("<h3> Link --> </h3><a href=\"https://ipfs.io/ipfs/"+result1+"\"><button class=\"button\">Click Me</button></a><br><br>");
-    html.appendTo('body');
-  });
-  }
+
+    for(var j=0;j<result1.length;j++)
+    {
+      test.showcoursebyid(result1[j],function(error,result){
+        var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div  class=\"card-body\"> <a href=\"coursepageteacher.html?"+result[0]+"\"><div class=\"myback-img \"> <img src=\"https://media.wired.com/photos/5a064a2bdfd4384b7ad1d8ba/master/w_2400,c_limit/roundup-TA.jp\" class=\"\"> </div> <div class=\"myoverlay\"> </div> </a><div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"http://www.uidownload.com/files/35/391/678/graduation-hat-thumb.jpg\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>"+ result[1]+"</h3> </a> </div> </div> </div> </div>");
+        html.appendTo('#enter');
+      });
+    }
+	}
   }
   else {
     console.log(error);
   }
 });
+
+
 
         </script>
     </body>
