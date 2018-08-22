@@ -68,7 +68,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        
+
 
 				<div class="container page-top">
 			<h1><center>Your Course Requests!</h1>
@@ -125,300 +125,319 @@
    		 web3.eth.defaultAccount=web3.eth.accounts[0];
 
    		 var testContract = web3.eth.contract([
-   	{
-   		"constant": false,
-   		"inputs": [
-   			{
-   				"name": "id",
-   				"type": "bytes32"
-   			}
-   		],
-   		"name": "acceptcoursereq",
-   		"outputs": [],
-   		"payable": false,
-   		"stateMutability": "nonpayable",
-   		"type": "function"
-   	},
-   	{
-   		"constant": false,
-   		"inputs": [
-   			{
-   				"name": "reqid",
-   				"type": "bytes32"
-   			},
-   			{
-   				"name": "vidhash",
-   				"type": "string"
-   			}
-   		],
-   		"name": "addvideo",
-   		"outputs": [],
-   		"payable": false,
-   		"stateMutability": "nonpayable",
-   		"type": "function"
-   	},
-   	{
-   		"constant": false,
-   		"inputs": [
-   			{
-   				"name": "id",
-   				"type": "bytes32"
-   			},
-   			{
-   				"name": "vid",
-   				"type": "string"
-   			}
-   		],
-   		"name": "addvideotocourse",
-   		"outputs": [],
-   		"payable": false,
-   		"stateMutability": "nonpayable",
-   		"type": "function"
-   	},
-   	{
-   		"constant": false,
-   		"inputs": [
-   			{
-   				"name": "reqname",
-   				"type": "string"
-   			},
-   			{
-   				"name": "name",
-   				"type": "string"
-   			},
-   			{
-   				"name": "description",
-   				"type": "string"
-   			},
-   			{
-   				"name": "fees",
-   				"type": "uint256"
-   			}
-   		],
-   		"name": "newcourse",
-   		"outputs": [],
-   		"payable": false,
-   		"stateMutability": "nonpayable",
-   		"type": "function"
-   	},
-   	{
-   		"constant": false,
-   		"inputs": [
-   			{
-   				"name": "id",
-   				"type": "bytes32"
-   			}
-   		],
-   		"name": "removereq",
-   		"outputs": [],
-   		"payable": false,
-   		"stateMutability": "nonpayable",
-   		"type": "function"
-   	},
-   	{
-   		"constant": false,
-   		"inputs": [
-   			{
-   				"name": "reqname",
-   				"type": "string"
-   			},
-   			{
-   				"name": "name",
-   				"type": "string"
-   			},
-   			{
-   				"name": "details",
-   				"type": "string"
-   			}
-   		],
-   		"name": "request_course",
-   		"outputs": [],
-   		"payable": true,
-   		"stateMutability": "payable",
-   		"type": "function"
-   	},
-   	{
-   		"constant": false,
-   		"inputs": [
-   			{
-   				"name": "id",
-   				"type": "bytes32"
-   			}
-   		],
-   		"name": "takecourse",
-   		"outputs": [],
-   		"payable": true,
-   		"stateMutability": "payable",
-   		"type": "function"
-   	},
-   	{
-   		"payable": true,
-   		"stateMutability": "payable",
-   		"type": "fallback"
-   	},
-   	{
-   		"constant": true,
-   		"inputs": [],
-   		"name": "showallcourses",
-   		"outputs": [
-   			{
-   				"name": "",
-   				"type": "bytes32[]"
-   			}
-   		],
-   		"payable": false,
-   		"stateMutability": "view",
-   		"type": "function"
-   	},
-   	{
-   		"constant": true,
-   		"inputs": [
-   			{
-   				"name": "id",
-   				"type": "bytes32"
-   			}
-   		],
-   		"name": "showcoursebyid",
-   		"outputs": [
-   			{
-   				"name": "",
-   				"type": "bytes32"
-   			},
-   			{
-   				"name": "",
-   				"type": "string"
-   			},
-   			{
-   				"name": "",
-   				"type": "string"
-   			},
-   			{
-   				"name": "",
-   				"type": "uint256"
-   			},
-   			{
-   				"name": "",
-   				"type": "address"
-   			},
-   			{
-   				"name": "",
-   				"type": "string"
-   			}
-   		],
-   		"payable": false,
-   		"stateMutability": "view",
-   		"type": "function"
-   	},
-   	{
-   		"constant": true,
-   		"inputs": [],
-   		"name": "showmycoursereq",
-   		"outputs": [
-   			{
-   				"name": "",
-   				"type": "bytes32[]"
-   			}
-   		],
-   		"payable": false,
-   		"stateMutability": "view",
-   		"type": "function"
-   	},
-   	{
-   		"constant": true,
-   		"inputs": [],
-   		"name": "showmycourses",
-   		"outputs": [
-   			{
-   				"name": "",
-   				"type": "bytes32[]"
-   			}
-   		],
-   		"payable": false,
-   		"stateMutability": "view",
-   		"type": "function"
-   	},
-   	{
-   		"constant": true,
-   		"inputs": [
-   			{
-   				"name": "id",
-   				"type": "bytes32"
-   			},
-   			{
-   				"name": "i",
-   				"type": "uint256"
-   			}
-   		],
-   		"name": "showvideos",
-   		"outputs": [
-   			{
-   				"name": "",
-   				"type": "string"
-   			}
-   		],
-   		"payable": false,
-   		"stateMutability": "view",
-   		"type": "function"
-   	},
-   	{
-   		"constant": true,
-   		"inputs": [],
-   		"name": "viewcourserequests",
-   		"outputs": [
-   			{
-   				"name": "",
-   				"type": "bytes32[]"
-   			}
-   		],
-   		"payable": false,
-   		"stateMutability": "view",
-   		"type": "function"
-   	},
-   	{
-   		"constant": true,
-   		"inputs": [
-   			{
-   				"name": "id",
-   				"type": "bytes32"
-   			}
-   		],
-   		"name": "viewcourserequestswithdetails",
-   		"outputs": [
-   			{
-   				"name": "",
-   				"type": "bytes32"
-   			},
-   			{
-   				"name": "",
-   				"type": "string"
-   			},
-   			{
-   				"name": "",
-   				"type": "string"
-   			},
-   			{
-   				"name": "",
-   				"type": "uint256"
-   			},
-   			{
-   				"name": "",
-   				"type": "address"
-   			},
-   			{
-   				"name": "",
-   				"type": "bool"
-   			},
-   			{
-   				"name": "",
-   				"type": "address"
-   			}
-   		],
-   		"payable": false,
-   		"stateMutability": "view",
-   		"type": "function"
-   	}
-   ]);
-   var test = testContract.at("0x2D1ddC2aaBc3E1c2bCcf0B2E3e7CB432587C6906");
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "acceptcoursereq",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "reqid",
+				"type": "bytes32"
+			},
+			{
+				"name": "vidhash",
+				"type": "string"
+			}
+		],
+		"name": "addvideo",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			},
+			{
+				"name": "vid",
+				"type": "string"
+			}
+		],
+		"name": "addvideotocourse",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "reqname",
+				"type": "string"
+			},
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"name": "fees",
+				"type": "uint256"
+			}
+		],
+		"name": "newcourse",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "removereq",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "reqname",
+				"type": "string"
+			},
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "details",
+				"type": "string"
+			}
+		],
+		"name": "request_course",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "takecourse",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showallcourses",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "showallvideos",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "showcoursebyid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showmycoursereq",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showmycourses",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			},
+			{
+				"name": "i",
+				"type": "uint256"
+			}
+		],
+		"name": "showvideos",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "viewcourserequests",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
+		"name": "viewcourserequestswithdetails",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "bool"
+			},
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+   var test = testContract.at("0x9AAe389d61125FD4551403c36e28dCD87Cc2c588");
    console.log(test);
 
 test.showmycourses(function(error,result1) {
@@ -435,7 +454,7 @@ test.showmycourses(function(error,result1) {
     for(var j=0;j<result1.length;j++)
     {
       test.showcoursebyid(result1[j],function(error,result){
-        var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div class=\"card-body\"> <div class=\"myback-img \"> <img src=\"https://media.wired.com/photos/5a064a2bdfd4384b7ad1d8ba/master/w_2400,c_limit/roundup-TA.jp\" class=\"\"> </div> <div class=\"myoverlay\"> <kbd style=\"background-color:rgb(21, 84, 58);\"\">Trainer :</kbd><h3><font color=\"white\"> " + result[5]  +"</font></h3></div> <div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"http://www.uidownload.com/files/35/391/678/graduation-hat-thumb.jpg\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>"+ result[1]+"</h3> </a> </div> </div> </div> </div>");
+        var html=$("<div class=\"carousel-item col-md-3 active\"> <div class=\"card h-100\"> <div  class=\"card-body\"> <a href=\"coursepagestudent.html?"+result[0]+"\"><div class=\"myback-img \"> <img src=\"https://media.wired.com/photos/5a064a2bdfd4384b7ad1d8ba/master/w_2400,c_limit/roundup-TA.jp\" class=\"\"> </div> <div class=\"myoverlay\"> <kbd style=\"background-color:rgb(21, 84, 58);\"\">Trainer :</kbd><h3><font color=\"white\"> " + result[5]  +"</font></h3></div> </a><div class=\"profile-img\"> <div class=\"borders avatar-profile\"> <img src=\"http://www.uidownload.com/files/35/391/678/graduation-hat-thumb.jpg\"> </div> </div> <div class=\"profile-title\"> <a href=\"#\"> <h3>"+ result[1]+"</h3> </a> </div> </div> </div> </div>");
         html.appendTo('#enter');
       });
     }

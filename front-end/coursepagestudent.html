@@ -8,6 +8,8 @@
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://github.com/souradeep-das/AYUDA-HL/blob/master/app/views/web/public/css/custom-styles.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -18,85 +20,104 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/new.css">
-  <link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/profile.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <style>
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  position: relative;
+    left:220px;
+    top:80px;
 
+}
+h3 {
+    position: relative;
+    left: 90px;
+    top: 138px;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
 <!--===============================================================================================-->
   <script src="./node_modules/web3/dist/web3.min.js"></script>
 </head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+
+
 <body>
-
 	<div class="topnav">
-	  <a href="/index.html">Home</a>
-	  <a class="active" href="courses.html">Courses</a>
-	  <a href="/coursedetails.html">Course Requests</a>
-	  <a href="#about">About</a>
-    <a href="addcourses.html">Add a Course</a>
-		<a href="learner.html">Dashboard</a>
+		<a href="/index.html">Home</a>
+		<a href="courses.html">Courses</a>
+		<a href="coursedetails.html">Course Requests</a>
+		<a href="#about">About</a>
+		<a href="addcourses.html">Add a Course</a>
+	  <a class="active" href="learner.html">Dashboard</a>
 	</div>
 
-	<div class="wrapper">
-	<div class="outer">
-		<div class="content animated fadeInLeft">
-			<span class="bg animated fadeInDown">NEW</span>
 
-			<h1 id="name"></h1>
-
-			<p id="details"></p>
+    <!-- Page Content -->
 <br><br>
-			<div class="button">
-				<a href="#"><h10 id="fees"></h10></a><a class="cart-btn" href="#" id="accept"><i class="cart-icon ion-bag"></i>BUY COURSE</a>
-			</div>
+<h1 id="cname"><center>Course Details</h1>
 
-		</div>
-		<img src="https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png	" width="300px" class="animated fadeInRight">
-	</div>
-	<p class="footer">Proffeth</p>
-</div>
+        <script>
+        if(typeof web3 !== 'undefined') {
+         console.log("Unlock MetaMask");
+         web3 = new Web3(web3.currentProvider);
+       }
+       else {
+         console.log("Install MetaMask");
+         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+       }
+       web3.version.getNetwork((err, netId) => {
+      switch (netId) {
+      case "1":
+      console.log('This is mainnet')
+      break
+      case "2":
+      console.log('This is the deprecated Morden test network.')
+      break
+      case "3":
+      console.log('This is the ropsten test network.')
+      break
+      case "4":
+      console.log('This is the Rinkeby test network.')
+      break
+      case "42":
+      console.log('This is the Kovan test network.')
+      break
+      default:
+      console.log('This is an unknown network.')
+      }
+      })
 
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script>
-		 if(typeof web3 !== 'undefined') {
-			 console.log("Unlock MetaMask");
-			 web3 = new Web3(web3.currentProvider);
-		 }
-		 else {
-			 console.log("Install MetaMask");
-			 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-		 }
-		 web3.version.getNetwork((err, netId) => {
-switch (netId) {
-	case "1":
-		console.log('This is mainnet')
-		break
-	case "2":
-		console.log('This is the deprecated Morden test network.')
-		break
-	case "3":
-		console.log('This is the ropsten test network.')
-		break
-	case "4":
-		console.log('This is the Rinkeby test network.')
-		break
-	case "42":
-		console.log('This is the Kovan test network.')
-		break
-	default:
-		console.log('This is an unknown network.')
-}
-})
+       web3.eth.defaultAccount=web3.eth.accounts[0];
 
-		 web3.eth.defaultAccount=web3.eth.accounts[0];
-
-		 var testContract = web3.eth.contract([
+       var testContract = web3.eth.contract([
 	{
 		"constant": false,
 		"inputs": [
@@ -409,33 +430,39 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0x9AAe389d61125FD4551403c36e28dCD87Cc2c588");
-console.log(test);
-var courseid=parent.document.URL.substring(37,parent.document.URL.length);
+      var test = testContract.at("0x9AAe389d61125FD4551403c36e28dCD87Cc2c588");
+      console.log(test);
+      var courseid=parent.document.URL.substring(45,parent.document.URL.length);
 
-console.log(courseid);
-test.showcoursebyid(courseid,function(error,result){
-if(!error)
-{
-	$("#name").html(result[1]);
-	$("#details").html(result[2]);
-	$("#fees").html("WEI: "+result[3]);
-  $("#accept").click(function() {
-  	test.takecourse(courseid,{from: web3.eth.accounts[0], gas: 3000000, value: result[3]},(error,result) => (console.log(result)));
+      console.log(courseid);
+
+      // test.viewcourserequestswithdetails(courseid,function(error,result){
+      //   if(!error)
+      //   {
+      //     console.log(result);
+      //      $("#cname").html(result);
+      //   }
+      //   else {
+      //     console.log(error);
+      //   }
+      // });
+
+test.showallvideos(courseid,function(error,result){
+  if(!error)
+  {
+    for(var j=1;j<result;j++)
+    {
+      test.showvideos(courseid,j,function(error,result1){
+
+    var html=$("<h3> Link --> </h3><a href=\"https://ipfs.io/ipfs/"+result1+"\"><button class=\"button\">Click Me</button></a><br><br>");
+    html.appendTo('body');
   });
-}
-else {
-	console.log(error);
-}
+  }
+  }
+  else {
+    console.log(error);
+  }
 });
 
-
-
-</script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
-
-
-</body>
-</html>
+        </script>
+    </body>

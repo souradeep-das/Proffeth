@@ -249,6 +249,25 @@ switch (netId) {
 				"type": "bytes32"
 			}
 		],
+		"name": "showallvideos",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
 		"name": "showcoursebyid",
 		"outputs": [
 			{
@@ -389,7 +408,7 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0x2D1ddC2aaBc3E1c2bCcf0B2E3e7CB432587C6906");
+var test = testContract.at("0x9AAe389d61125FD4551403c36e28dCD87Cc2c588");
 console.log(test);
 
 test.viewcourserequests(function(error,result1) {

@@ -101,6 +101,9 @@ contract education {
     return coursetovid[id][i];
   }
 
+  function showallvideos(bytes32 id) constant returns(uint) {
+    return coursetovid[id].length;
+  }
 
   function newcourse(string reqname,string name,string description,uint fees) {
     bytes32 id =keccak256(name,msg.sender);
