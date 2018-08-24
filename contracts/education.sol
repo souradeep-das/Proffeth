@@ -102,7 +102,14 @@ function showcreatedcourse() constant returns(bytes32[]) {
   }
 
   function showvideos(bytes32 id,uint i) constant returns(string) {
-    return coursetovid[id][i];
+    for(var j=0;j<usertocourse[msg.sender].length;j++)
+    {
+      if(usertocourse[msg.sender][j]==id)
+      {
+        return coursetovid[id][i];
+      }
+    }
+
   }
 
   function showallvideos(bytes32 id) constant returns(uint) {
