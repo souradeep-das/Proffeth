@@ -65,7 +65,10 @@ contract education {
   mapping (address => bytes32[]) usertocreated;
   //mapping user to his course request id's
   mapping (address => bytes32[]) usertoreq;
-
+  //mapping course id to number of students
+  mapping (bytes32 => uint) nooftakers;
+  //mapping course id to amount paid till now
+  mapping (bytes32 => uint) paidtillnow;
 
 // array to store requested courses
   bytes32[] requestedcourses;
@@ -93,7 +96,7 @@ contract education {
   }
 
   /** @dev View course Requests
-    * @param Course Request id
+    * @param id Request id
     * @return course id
     * @return course name
     * @return course details
@@ -107,7 +110,7 @@ contract education {
   }
 
 /** @dev Accept Course Request
-  * @param Courseid
+  * @param id The course request id
   */
   function acceptcoursereq(bytes32 id) {
     idtocoursemapping[id].accepted=true;
@@ -142,6 +145,7 @@ contract education {
    * @param id The id of course request to remove
    */
  function removereq(bytes32 id) {
+   require(idtocoursemapping[id].user_add==msg.sender);
    idtocoursemapping[id].accepted=true;
  }
 
@@ -167,6 +171,21 @@ contract education {
       }
     }
 
+  }
+
+  /** @dev The trainer gets money through this
+    * @param id Course id
+    */
+  function paytrainer(bytes32 id) {
+    require(coursedetailmapping[id].trainer==msg.sender);
+    uint noofvid = showallvideos(id);
+    uint fees= coursedetailmapping[id].fees;
+    address trainer = coursedetailmapping[id].trainer;
+    uint total = nooftakers[id]*fees;
+    require(paidtillnow[id]<total);
+    uint amounttogive = (fees-(paidtillnow[id]/nooftakers[id]))/(noofvid);
+    paidtillnow[id]+=amounttogive;
+    trainer.transfer(amounttogive);
   }
 
   /** @dev Show number of videos for the course
@@ -198,6 +217,7 @@ contract education {
     * @param vid The ipfs video hash
     */
   function addvideotocourse(bytes32 id,string vid) {
+    require(coursedetailmapping[id].trainer==msg.sender);
     coursetovid[id].push(vid);
   }
 
@@ -207,6 +227,7 @@ contract education {
   function takecourse(bytes32 id) payable {
     require(msg.value>=courseadding[id].fees);
     usertocourse[msg.sender].push(id);
+    nooftakers[id]++;
   }
 
   //array to store all the courses

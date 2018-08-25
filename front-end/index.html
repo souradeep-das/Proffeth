@@ -214,6 +214,20 @@ switch (netId) {
 				"type": "bytes32"
 			}
 		],
+		"name": "paytrainer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "bytes32"
+			}
+		],
 		"name": "removereq",
 		"outputs": [],
 		"payable": false,
@@ -456,7 +470,7 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0xA8679f9dA708d9f0f305EB3532325c28Ee6F1F09");
+var test = testContract.at("0x60b83faf96Cd93f96816BaF2Edcbf9b8004Ad611");
 console.log(test);
 
 $("#Submit").click(function() {
