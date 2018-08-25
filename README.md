@@ -4,6 +4,6 @@
 
 ```sh
 git clone https://github.com/souradeep-das/Proffeth.git
-cd Proffeth
+cd Proffeth/front-end/
 npm run dev
 ```
