@@ -1,6 +1,6 @@
 # Proffeth
   Decentralized education platform
-## Installation
+## Running the Application
 
 ```sh
 git clone https://github.com/souradeep-das/Proffeth.git
