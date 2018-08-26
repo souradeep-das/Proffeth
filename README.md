@@ -122,6 +122,20 @@ The website can be used now and make sure you are using Metamask and it is on th
   If you choose to be a teacher, you can add a course which will show in the 'course' tab under students.It will also show in your dashboard under the courses you teach.Clicking on the course will allow you to add contect to the course.
   
   If you choose to be a student, you can buy and requeset a course. Your requested course shows up in the 'Course Requests' tab under teacher. If you buy a course it will show in your dashboard. You will be able to view the course contents by clicking on the course in your dashboard.
+  
+## Screenshots
+
+#### Home Page
+![home](https://github.com/souradeep-das/Proffeth/blob/master/images/Screenshot%20from%202018-08-27%2003-03-36.png)
+
+#### Course Explorer
+![courses](https://github.com/souradeep-das/Proffeth/blob/master/images/Screenshot%20from%202018-08-27%2003-07-23.png)
+
+#### Buy Course Page
+![course buy page](https://github.com/souradeep-das/Proffeth/blob/master/images/Screenshot%20from%202018-08-27%2003-08-11.png)
+
+##### Teacher Dashboard
+![dashboard teacher](https://github.com/souradeep-das/Proffeth/blob/master/images/Screenshot%20from%202018-08-27%2003-08-45.png)
 
 ## Integration with additional services
 ### Oraclize
