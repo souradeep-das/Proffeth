@@ -1,10 +1,14 @@
 pragma solidity ^0.4.10;
 
+// importing Oraclize API contract
+import "./oraclizeAPI.sol";
+
 /** @title Education Platform */
-contract education {
+contract education is usingOraclize{
 
 
 address authorized;
+// for circuit breaker
 bool emergency= false;
 //The user struct to hold his address,name,email id and password
   struct user{
@@ -100,7 +104,7 @@ bool emergency= false;
  function resumeContract() onlyAuthorized {
    emergency=false;
  }
- 
+
 // array to store requested courses
   bytes32[] requestedcourses;
   /** @dev Request for a course
@@ -244,6 +248,28 @@ bool emergency= false;
     usertocreated[msg.sender].push(id);
   }
 
+bytes32 public oraclizeID;
+string public result;
+
+/** @dev Function to trigger oraclize and convert to usd
+  * @param value the value of wei to convert
+  */
+ function convertToUsd(uint value) payable{
+   oraclizeID = oraclize_query("WolframAlpha","Convert 1 ether to usd");
+ }
+
+// function which oraclize calls
+ function __callback(bytes32 _oraclizeID,string _result) {
+   require(msg.sender==oraclize_cbAddress());
+   result=_result;
+ }
+
+ /** @dev Retruns the value of result
+   * @return value of result
+   */
+ function getresult() constant returns(string) {
+   return result;
+ }
   /** @dev Add video to course
     * @param id Course id
     * @param vid The ipfs video hash

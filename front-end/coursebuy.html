@@ -46,8 +46,11 @@
 			<p id="details"></p>
 <br><br>
 			<div class="button">
-				<a href="#"><h10 id="fees"></h10></a><a class="cart-btn" href="#" id="accept"><i class="cart-icon ion-bag"></i>BUY COURSE</a>
+				<a href=""><h10 id="fees"></h10></a><a class="cart-btn" href="#" id="accept"><i class="cart-icon ion-bag"></i>BUY COURSE</a>
 			</div>
+
+			<center><button id="usd" type="button" class="btn btn-primary btn-sm">Convert to USD</button>
+				<br><br><h5 id ="amount"></h5><h7>1 ETH = 1 * 10^18 wei</h7>
 
 		</div>
 		<img src="https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png	" width="300px" class="animated fadeInRight">
@@ -101,6 +104,46 @@ switch (netId) {
 		"constant": false,
 		"inputs": [
 			{
+				"name": "_oraclizeID",
+				"type": "bytes32"
+			},
+			{
+				"name": "_result",
+				"type": "string"
+			}
+		],
+		"name": "__callback",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "myid",
+				"type": "bytes32"
+			},
+			{
+				"name": "result",
+				"type": "string"
+			},
+			{
+				"name": "proof",
+				"type": "bytes"
+			}
+		],
+		"name": "__callback",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
 				"name": "id",
 				"type": "bytes32"
 			}
@@ -145,6 +188,20 @@ switch (netId) {
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "convertToUsd",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -265,6 +322,48 @@ switch (netId) {
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getresult",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "oraclizeID",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "result",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"constant": true,
@@ -461,7 +560,7 @@ switch (netId) {
 		"type": "function"
 	}
 ]);
-var test = testContract.at("0xEA77C11884887Aa4c9D3A3ce7e3B7179313a4a52");
+var test = testContract.at("0x41f35dd34a9b524e80a88d57e3d3767650645b36");
 console.log(test);
 var courseid=parent.document.URL.substring(37,parent.document.URL.length);
 
@@ -473,15 +572,26 @@ if(!error)
 	$("#details").html(result[2]);
 	$("#fees").html("WEI: "+result[3]);
   $("#accept").click(function() {
-  	test.takecourse(courseid,{from: web3.eth.accounts[0], gas: 3000000, value: result[3]},(error,result) => (console.log(result)));
+  	test.takecourse(courseid,{from: web3.eth.accounts[0], gas: 3000000, value: result[3]},(error,result1) => (console.log(result1)));
   });
+	$("#usd").click(function() {
+		test.convertToUsd(result[3],(error,result2) => (console.log(result2)));
+	});
 }
 else {
 	console.log(error);
 }
 });
 
-
+test.getresult(function(error,result3){
+	if(!error)
+	{
+		$("#amount").html("1 ETH in USD: "+result3);
+	}
+	else {
+		console.log(error);
+	}
+});
 
 </script>
 <!--===============================================================================================-->
