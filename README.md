@@ -71,7 +71,7 @@
    ```sh
    truffle test
    ```
-### Information on the tests
+## Information on the tests
    
    **Note- education.sol is the main smart contract. LibraryDemo.sol is the implementation of ETHpm and is not related to the main smart contract. OraclizeAPI is the contract for the usage of oraclize as a service in the main smart contract.**
    
