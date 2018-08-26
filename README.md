@@ -1,5 +1,19 @@
 # Proffeth
   Proffeth is a decentralized learning platform which uses some unique methods to ensure a safe and happy learning environment in a trustless environment.
+  
+# Contents
+- [The Problem](#the-problem)
+- [The Platform - Proffeth](#the-platform---proffeth)
+- [The Unique feature](#the-unique-feature)
+- [How Blockchain can help](#how-blockchain-can-help)
+- [Impact](#impacts)
+- [Using Truffle to test contracts](#using-truffle-to-test-contracts)
+- [Running the Application](#running-the-application)
+- [Screenshots](#screenshots)
+- [Integration with additional services](#integration-with-additional-services)
+- [Tech Stack](#tech-stack)
+
+
   ## The problem
   Education platforms which exists currently are limited to teachers or courses from reputed universities. There should be a wider range of courses available to people. After all even small things need to be learnt and can help gain some important skill.There also is a need of a platform for normal people to share courses within themselves.Everyone has something to teach and what better way than earning some money for it. Combining these two factors, there exists a dire need of a new kind of skill sharing platform.
   ## The Platform - Proffeth
