@@ -89,7 +89,7 @@
       
       Check course name- Verifying the course name
       
-    (These tests show that the course requests are successfully added on to the blockchain)   
+      (These tests show that the course requests are successfully added on to the blockchain)   
       
     Check Add Course
    
@@ -99,7 +99,7 @@
       
       Check course name- Verifying the course name
       
-    (These tests show that the courses are successfully added to the blockchain)  
+      (These tests show that the courses are successfully added to the blockchain)  
       
     Take the course
    
@@ -107,7 +107,7 @@
       
       Take the course-Javascript-paying actual amount- Checking if someone can take the course paying the correct fees 
       
-    (These tests are important because they show the proper enrollment of a learner in a course, which inlcudes adding the course to his dashboard and giving him access to the course contents)  
+      (These tests are important because they show the proper enrollment of a learner in a course, which inlcudes adding the course to his dashboard and giving him access to the course contents)  
       
     Acceptance of course requests
    
@@ -115,7 +115,7 @@
       
       Course variables updated- Checking if the attributes of a course has been udated
       
-    (These tests show that the course requests are successfully accepted by a trainer who will provide content for the course)  
+      (These tests show that the course requests are successfully accepted by a trainer who will provide content for the course)  
       
     Add video to course
    
@@ -123,7 +123,7 @@
       
       Course acceptor adding a video- Checking if the trainer of a course is able to add video
       
-    (These test is important because it shows the proper addition of content to a course, restricting access to only the creator of the course to add content)  
+      (These test is important because it shows the proper addition of content to a course, restricting access to only the creator of the course to add content)  
       
     Get Video links of a course
    
