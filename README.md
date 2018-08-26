@@ -35,10 +35,10 @@
   Blockchain provides with a great way to remove the trust factor between the parties.The smart contract acts for the security of payments in exchange of the course resources.The automation of payouts with the exchange of content provides with a unique Pay-as-you-learn feature.The algorithm also creates a condition where a more active course, with learners actively moving forward in the course will mean a faster payout to the trainer.
   ### Impacts
   | Problems in an open Education Platform | How the project solves them |
-| --- | --- |
-| Fraudulent Course | Unique pay-while-you-learn method |
-| Low Quality of content | The algorithm ensures faster payouts for active courses |
-| Low number of small-scale courses | The platform allows any type of skill-sharing activity|
+  | --- | --- |
+  | Fraudulent Course | Unique pay-while-you-learn method |
+  | Low Quality of content | The algorithm ensures faster payouts for active courses |
+  | Low number of small-scale courses | The platform allows any type of skill-sharing activity|
 
 
 # Using Truffle to test contracts
