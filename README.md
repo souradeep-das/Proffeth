@@ -89,6 +89,8 @@
       
       Check course name- Verifying the course name
       
+    (These tests show that the course requests are successfully added on to the blockchain)   
+      
     Check Add Course
    
       Call function newcourse- Checking the creation of a course 
@@ -97,11 +99,15 @@
       
       Check course name- Verifying the course name
       
+    (These tests show that the courses are successfully added to the blockchain)  
+      
     Take the course
    
       Take the course-Javascript-paying less, should fail- Checking if someone can take the course paying less than the fees
       
       Take the course-Javascript-paying actual amount- Checking if someone can take the course paying the correct fees 
+      
+    (These tests are important because they show the proper enrollment of a learner in a course, which inlcudes adding the course to his dashboard and giving him access to the course contents)  
       
     Acceptance of course requests
    
@@ -109,15 +115,21 @@
       
       Course variables updated- Checking if the attributes of a course has been udated
       
+    (These tests show that the course requests are successfully accepted by a trainer who will provide content for the course)  
+      
     Add video to course
    
       Other person than the acceptor trying to add a video-should fail- Checking if a person is able to add content to other peoples course 
       
       Course acceptor adding a video- Checking if the trainer of a course is able to add video
       
+    (These test is important because it shows the proper addition of content to a course, restricting access to only the creator of the course to add content)  
+      
     Get Video links of a course
    
       Any other person gets the video links of the course-should not allow- Checking if only the student is able to get the course content information
+      
+      (This test shows if only the student enrolled in the course is able to retrieve the course contents. Any other person who is not enrolled to the course and getting access to the content will result in a security breach)
    
 # Running the Application  
 **Dependencies** 
