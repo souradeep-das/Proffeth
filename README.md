@@ -7,6 +7,8 @@
   
   [Link to Deployed Address](https://github.com/souradeep-das/Proffeth/blob/master/deployed_addresses.txt)
   
+  [Link to EthPM implementation](https://github.com/souradeep-das/Proffeth/blob/master/contracts/LibraryDemo.sol)
+  
 # Contents
 - [The Problem](#the-problem)
 - [The Platform - Proffeth](#the-platform---proffeth)
