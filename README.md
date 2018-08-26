@@ -25,7 +25,34 @@
 | Low number of small-scale courses | The platform allows any type of skill-sharing activity|
 
 # Running the Application
+## Using Truffle to test contracts
+**Dependencies** 
+   1. Install [Truffle](https://truffleframework.com/truffle)
+   2. Install [Ganache](https://truffleframework.com/ganache)
+   
+**Clone the repository**
+  ```sh
+  git clone https://github.com/souradeep-das/Proffeth.git
+  ```
+   
+**Steps to run the Tests**
 
+   First run ganache
+   ```sh
+   ganache-cli
+   ```
+   Compile the contracts
+   ```sh
+   truffle compile
+   ```
+   Run the tests
+   ```sh
+   truffle test
+   ```
+   
+   
+   
+   
 ```sh
 git clone https://github.com/souradeep-das/Proffeth.git
 cd Proffeth/front-end/
