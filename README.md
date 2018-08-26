@@ -140,9 +140,9 @@ The website can be used now and make sure you are using Metamask and it is on th
 ![Notice](https://github.com/souradeep-das/Proffeth/blob/master/images/Screenshot%20from%202018-08-27%2002-50-43.png)
 
 ### Running thorugh the website
-  If you choose to be a teacher, you can add a course which will show in the 'course' tab under students.It will also show in your dashboard under the courses you teach.Clicking on the course will allow you to add contect to the course.
+  If you choose to be a teacher, you can add a course which will then show up in the 'course' tab under students,enabling students to browse through.It will also show in your dashboard under the courses you teach.Clicking on the course will allow you to add content to that specific course.
   
-  If you choose to be a student, you can buy and requeset a course. Your requested course shows up in the 'Course Requests' tab under teacher. If you buy a course it will show in your dashboard. You will be able to view the course contents by clicking on the course in your dashboard.
+  If you choose to be a student, you can buy and requeset a course. Your course requests shows up in the 'Course Requests' tab under teacher,so that the teacher can browse through. If you buy a course it will show in your dashboard. You will be able to view the course contents by clicking on the course in your dashboard.
   
 ## Screenshots
 
