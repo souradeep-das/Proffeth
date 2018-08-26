@@ -9,11 +9,12 @@
   #### Buying a course
   The course already added by the trainers are visible and the learner can browse through the courses and can buy the course he wants to.As this is a platform open to everyone and the fact that anybody can add a course also brings in the possibility of defrauding people by putting in fake courses.So, Proffeth has this unique algorithm which pays out the trainer catiously in accordance with combining the values of individual and total user progress. So buying a course transfers the money to the contract and later gradually gives away the money to the trainers calculating the students progress.
   #### Requesting a course
-  People can come in to the platform and request to teach them any skill they wish to learn.They can opt for quoting the fee they wish to pay for the course. The course requests are sent in with the course fee paid to the contract and are open for acquiring trainers. The learner has the option to revoke the request anytime he/she wants and get the fee paid back instantly.
+  People can come in to the platform and request to teach them any skill they wish to learn.They can opt for quoting the fee they wish to pay for the course. The course requests are sent in with the course fee paid to the contract and are open for acquiring trainers.The course fee paid to the contract provides a security measure for the trainers that the learners can not back out afterwads. The learner has the option to revoke the request anytime he/she wants and get the fee paid back instantly.
   #### Accepting a course request
   The trainer also has the option to see and accept any course request. After the course request is accepted the platform considers it as a course and gets paid gradually in the same way.
   ### The Unique feature
-  
+  The platform ensures a proper trust free secure method for skill sharing.In a platform where we dont have any special requirements for a person to be a teacher,the platform needs to be fraud proof.Proffeth has this unique algorithm which pays out the trainer catiously in accordance with combining the values of individual and total user progress.So, buying a course will not transfer the money to the trainer instantly.This removes the necessity to trust the trainer.
+  The course requests also needs the course fee to be paid to the contract, so that the learner cannot back out after the course has been accepted.However, the learner can revoke the course request anytime until it has been accepted. 
   
 ## Running the Application
 
