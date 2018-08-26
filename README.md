@@ -113,6 +113,12 @@
 npm run dev
 ```
 The website can be used now and make sure you are using Metamask and it is on the Rinkeby Testnet.
+
+## Integration with additional services
+### Oraclize
+Oraclize has been integrated with the product to get the real time conversion values of Ethers to USD. When the conversion function is triggered, Oraclize uses Wolfram Alpha's API to get the current conversion rate and sends it through a transaction to the contract.
+### IPFS
+IPFS has been used to store the content of a specefic course. IPFS provides with a distributed file storage capability and easily fits into the platform. However, a non-IPFS based course content is also allowed in the platform.
   
 
 
