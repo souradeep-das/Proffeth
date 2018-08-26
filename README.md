@@ -6,7 +6,7 @@
 - [The Platform - Proffeth](#the-platform---proffeth)
 - [The Unique feature](#the-unique-feature)
 - [How Blockchain can help](#how-blockchain-can-help)
-- [Impact](#impacts)
+- [Impacts](#impacts)
 - [Using Truffle to test contracts](#using-truffle-to-test-contracts)
 - [Running the Application](#running-the-application)
 - [Screenshots](#screenshots)
