@@ -1,6 +1,6 @@
 # Design Patterns
 
-## Circuit breaker
+## Circuit breaker - The Emergency Stop
 Implemented circuit breaker so that the contract can be paused by some authorized person, which will stop ether inflow to the contract. When the emergency is triggered by the authorized, functions like request course, buy course will not work, in order to reject ether flow to the contract. On the same time, the trainers can withdraw their payment without any issues. The contract works normally again when the authorized calls the function resumeContract
 
 ## Restricting Access
@@ -15,3 +15,8 @@ An oracle service - Oraclize has been used to get the price of eth in usd. It us
 ## Pull over push payments
 The function paytrainer is designed to be a pull payment, where the trainer calls the function to get his payment. There could also have been a push payment implementation but that could have brought problems like re-entrancy and DOS attacks.
 
+## Auto depreciation - not required 
+Because the contract should not expire after any certain amount of time. The contract is created to keep records of all the course, course requests, the students who take this course along with the course ipfs links. The contract has no requirement to terminate after a certain period of time so the auto depreciation design pattern has not been used.
+
+## Mortal - not used
+Not providing the access of the contract creator to kill the contract and take all the ethers with him, but the project includes design patterns like circuit breaker
