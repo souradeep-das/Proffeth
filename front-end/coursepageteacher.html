@@ -245,6 +245,24 @@
 	},
 	{
 		"constant": false,
+		"inputs": [],
+		"name": "resumeContract",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "stopContract",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
 		"inputs": [
 			{
 				"name": "id",
@@ -261,6 +279,12 @@
 		"payable": true,
 		"stateMutability": "payable",
 		"type": "fallback"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
 		"constant": true,
@@ -457,7 +481,7 @@
 		"type": "function"
 	}
 ]);
-      var test = testContract.at("0x60b83faf96Cd93f96816BaF2Edcbf9b8004Ad611");
+      var test = testContract.at("0xEA77C11884887Aa4c9D3A3ce7e3B7179313a4a52");
       console.log(test);
       var courseid=parent.document.URL.substring(45,parent.document.URL.length);
 

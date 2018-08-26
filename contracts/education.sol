@@ -3,6 +3,9 @@ pragma solidity ^0.4.10;
 /** @title Education Platform */
 contract education {
 
+
+address authorized;
+bool emergency= false;
 //The user struct to hold his address,name,email id and password
   struct user{
     address user_add;
@@ -70,6 +73,34 @@ contract education {
   //mapping course id to amount paid till now
   mapping (bytes32 => uint) paidtillnow;
 
+
+//constructor which sets authorized to the contract creator
+ constructor() public {
+   authorized=msg.sender;
+ }
+
+//modifier to check if the person is authorized
+ modifier onlyAuthorized{
+   require(authorized==msg.sender);
+   _;
+ }
+
+//modifier to stop certain functions when in emergency
+ modifier stoppedInEmergency {
+   require(!emergency);
+   _;
+ }
+
+//circuit breaker function to stop contract functioning
+ function stopContract() onlyAuthorized {
+   emergency=true;
+ }
+
+//resuming the contract when required
+ function resumeContract() onlyAuthorized {
+   emergency=false;
+ }
+ 
 // array to store requested courses
   bytes32[] requestedcourses;
   /** @dev Request for a course
@@ -77,7 +108,7 @@ contract education {
     * @param name Name of the course
     * @param details Course details
     */
-  function request_course(string reqname,string name,string details) payable {
+  function request_course(string reqname,string name,string details) payable stoppedInEmergency {
     bytes32 id =keccak256(name,msg.sender);
     coursemapping[msg.sender]=coursereq(id,name,details,msg.value,msg.sender,false,0);
     idtocoursemapping[id]=coursereq(id,name,details,msg.value,msg.sender,false,0);
@@ -147,6 +178,7 @@ contract education {
  function removereq(bytes32 id) {
    require(idtocoursemapping[id].user_add==msg.sender);
    idtocoursemapping[id].accepted=true;
+   msg.sender.transfer(idtocoursemapping[id].fees);
  }
 
  /** @dev Add video to course request
@@ -216,7 +248,7 @@ contract education {
     * @param id Course id
     * @param vid The ipfs video hash
     */
-  function addvideotocourse(bytes32 id,string vid) {
+  function addvideotocourse(bytes32 id,string vid) stoppedInEmergency {
     require(coursedetailmapping[id].trainer==msg.sender);
     coursetovid[id].push(vid);
   }
@@ -224,7 +256,7 @@ contract education {
   /** @dev Buy course
     * @param id Course id
     */
-  function takecourse(bytes32 id) payable {
+  function takecourse(bytes32 id) payable stoppedInEmergency{
     require(msg.value>=courseadding[id].fees);
     usertocourse[msg.sender].push(id);
     nooftakers[id]++;
@@ -253,7 +285,7 @@ contract education {
   }
 
 //payable fallback functions
-  function() payable {
+  function() payable stoppedInEmergency {
 
   }
 }
