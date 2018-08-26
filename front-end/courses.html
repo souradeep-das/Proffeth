@@ -32,9 +32,7 @@
 	<div class="topnav">
 	  <a href="/index.html">Home</a>
 	  <a class="active" href="courses.html">Courses</a>
-	  <a href="coursedetails.html">Course Requests</a>
-	  <a href="#about">About</a>
-		<a href="addcourses.html">Add a Course</a>
+		<a href="courserequest.html">Request a course</a>
 		<a href="learner.html">Dashboard</a>
 	</div>
 	<br><br>
@@ -572,7 +570,7 @@ for(var j = 0; j < result1.length; j++) {
 test.showcoursebyid(result1[j],function(error,result){
 
 
-			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-9\">" + "<kbd style=\"background-color:rgb(0, 150, 50);\"\">Name :</kbd>  "+ result[1] +  "<br>"   +  "<kbd style=\"background-color:rgb(0, 197, 50);\"\">Fee :</kbd>  "+ result[3] +  "<br><kbd style=\"background-color:rgb(0, 232, 50);\"\">Trainer :</kbd>  "+ result[5]  + "<br><img src=\"https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png\"" + "<br><center><a href=\"coursebuy.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-success\">Accept</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
+			 html+="<li class=\"list-group-item\"><p><div class=\"col-md-9\">" + "<kbd style=\"background-color:rgb(0, 150, 50);\"\">Name :</kbd>  "+ result[1] +  "<br>"   +  "<kbd style=\"background-color:rgb(0, 197, 50);\"\">Fee :</kbd>  "+ result[3] +  "<br><kbd style=\"background-color:rgb(0, 232, 50);\"\">Trainer :</kbd>  "+ result[5]  + "<br><img src=\"https://cdn.iconscout.com/public/images/icon/free/png-256/ethereum-classic-bitcoin-cryptocurrency-blockchain-3f2e4f3f035fed11-256x256.png\"" + "<br><center><a href=\"coursebuy.html?"+result[0]+"\"><div id=\"accept\"><button class=\"btn btn-success\">Buy Course</button></div></a>"+ "</div></p></li>&nbsp;&nbsp;&nbsp;";
 			document.getElementById("box").innerHTML = html;
 
 
