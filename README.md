@@ -24,8 +24,8 @@
 | Low Quality of content | The algorithm ensures faster payouts for active courses |
 | Low number of small-scale courses | The platform allows any type of skill-sharing activity|
 
-# Running the Application
-## Using Truffle to test contracts
+
+# Using Truffle to test contracts
 **Dependencies** 
    1. Install [Truffle](https://truffleframework.com/truffle)
    2. Install [Ganache](https://truffleframework.com/ganache)
@@ -33,6 +33,7 @@
 **Clone the repository**
   ```sh
   git clone https://github.com/souradeep-das/Proffeth.git
+  cd Proffeth/
   ```
    
 **Steps to run the Tests**
@@ -95,10 +96,23 @@
    
       Any other person gets the video links of the course-should not allow- Checking if only the student is able to get the course content information
    
+# Running the Application  
+**Dependencies** 
+   1. Install [npm](https://www.npmjs.com/get-npm)
+   2. Install [MetaMask](https://metamask.io/)
    
+**Note: Make sure you have a internet connection and switch to Rinkeby Testnet in Metamask.Make sure you have test-ethers in Rinkeby.Request from the [Rinkeby faucet](https://www.rinkeby.io/#faucet) if you dont.** 
+   
+**Clone the repository**
+  ```sh
+  git clone https://github.com/souradeep-das/Proffeth.git
+  cd Proffeth/front-end/
+  ```
+**Run the lite-server**
 ```sh
-git clone https://github.com/souradeep-das/Proffeth.git
-cd Proffeth/front-end/
 npm run dev
 ```
+The website can be used now and make sure you are using Metamask and it is on the Rinkeby Testnet.
+  
+
 
