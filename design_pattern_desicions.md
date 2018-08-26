@@ -1,1 +1,17 @@
+# Design Patterns
+
+## Circuit breaker
+Implemented circuit breaker so that the contract can be paused by some authorized person, which will stop ether inflow to the contract. When the emergency is triggered by the authorized, functions like request course, buy course will not work, in order to reject ether flow to the contract. On the same time, the trainers can withdraw their payment without any issues. The contract works normally again when the authorized calls the function resumeContract
+
+## Restricting Access
+Used restricting access to limit everyone for calling a function. The access restriction was used in function removereq() which is used to remove the course request. Here only the person who requested the course is allowed to revoke the request. In the function which adds video link to the course also has a check to allow only the course creator to add the video link. 
+
+## Fail Early(Use of Require over if condition)
+Require is used instead of if condition for checking any condition. To avoid failing a function without throwing is avoided by using the require statement. The require statement will check for the condition and throw if the condition is met. This has been used in function paytrainer where a nested if condition is replaced with require statements.
+
+## Oracle 
+An oracle service - Oraclize has been used to get the price of eth in usd. It uses Wolfram Alpha to convert the amount of eth to USD on that specific time.
+
+## Pull over push payments
+The function paytrainer is designed to be a pull payment, where the trainer calls the function to get his payment. There could also have been a push payment implementation but that could have brought problems like re-entrancy and DOS attacks.
 
