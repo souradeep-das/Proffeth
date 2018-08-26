@@ -114,7 +114,7 @@ npm run dev
 ```
 The website can be used now and make sure you are using Metamask and it is on the Rinkeby Testnet.
 
-## Running thorugh the website
+### Running thorugh the website
   If you choose to be a teacher, you can add a course which will show in the 'course' tab under students.It will also show in your dashboard under the courses you teach.Clicking on the course will allow you to add contect to the course.
   
   If you choose to be a student, you can buy and requeset a course. Your requested course shows up in the 'Course Requests' tab under teacher. If you buy a course it will show in your dashboard. You will be able to view the course contents by clicking on the course in your dashboard.
@@ -124,6 +124,23 @@ The website can be used now and make sure you are using Metamask and it is on th
 Oraclize has been integrated with the product to get the real time conversion values of Ethers to USD. When the conversion function is triggered, Oraclize uses Wolfram Alpha's API to get the current conversion rate and sends it through a transaction to the contract.
 ### IPFS
 IPFS has been used to store the content of a specefic course. IPFS provides with a distributed file storage capability and easily fits into the platform. However, a non-IPFS based course content is also allowed in the platform.
+
+## Tech Stack
+
+**Frameworks/Tools**
+  1. Truffle
+  2. Ganache
+  3. Metamask
+  4. Web3.js
+  5. Oraclize
+  6. npm
+  7. Git
   
+  
+**Programming Languages**  
+  1. Solidity
+  2. Javascript
+  3. HTML
+  4. CSS
 
 
