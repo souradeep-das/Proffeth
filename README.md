@@ -15,6 +15,10 @@
   ### The Unique feature
   The platform ensures a proper trust free secure method for skill sharing.In a platform where we dont have any special requirements for a person to be a teacher,the platform needs to be fraud proof.Proffeth has this unique algorithm which pays out the trainer catiously in accordance with combining the values of individual and total user progress.So, buying a course will not transfer the money to the trainer instantly.This removes the necessity to trust the trainer.The platform uses a unique Pay-as-you-learn feature, where the smart contract automatically allocates fund for the trainer as the learner moves ahead with the course.
   The course requests also needs the course fee to be paid to the contract, so that the learner cannot back out after the course has been accepted.However, the learner can revoke the course request anytime until it has been accepted. 
+  
+ ![Notice](https://github.com/souradeep-das/Proffeth/blob/master/images/Screenshot%20from%202018-08-27%2002-50-43.png)
+ 
+ 
   ### How Blockchain can help
   Blockchain provides with a great way to remove the trust factor between the parties.The smart contract acts for the security of payments in exchange of the course resources.The automation of payouts with the exchange of content provides with a unique Pay-as-you-learn feature.The algorithm also creates a condition where a more active course, with learners actively moving forward in the course will mean a faster payout to the trainer.
   ### Impacts
