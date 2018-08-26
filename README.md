@@ -49,8 +49,51 @@
    ```sh
    truffle test
    ```
+***Information on the tests***
    
+   **Note- education.sol is the main smart contract. LibraryDemo.sol is the implementation of ETHpm and is not related to the main smart contract. OraclizeAPI is the contract for the usage of oraclize as a service in the main smart contract.**
    
+    Deploy the smart contract
+   
+      Catch an instance of the contract- This shows contract has been successfully deployed
+      
+    Check Course Requests
+   
+      Call function request_course- Checking the proper creation of a request
+      
+      Check number of course requests- Checking this with number of course requests
+      
+      Check course name- Verifying the course name
+      
+    Check Add Course
+   
+      Call function newcourse- Checking the creation of a course 
+      
+      Check number of courses- Checking this with number of courses in the contract
+      
+      Check course name- Verifying the course name
+      
+    Take the course
+   
+      Take the course-Javascript-paying less, should fail- Checking if someone can take the course paying less than the fees
+      
+      Take the course-Javascript-paying actual amount- Checking if someone can take the course paying the correct fees 
+      
+    Acceptance of course requests
+   
+      Accept course request- Checking the acceptance of course requests
+      
+      Course variables updated- Checking if the attributes of a course has been udated
+      
+    Add video to course
+   
+      Other person than the acceptor trying to add a video-should fail- Checking if a person is able to add content to other peoples course 
+      
+      Course acceptor adding a video- Checking if the trainer of a course is able to add video
+      
+    Get Video links of a course
+   
+      Any other person gets the video links of the course-should not allow- Checking if only the student is able to get the course content information
    
    
 ```sh
