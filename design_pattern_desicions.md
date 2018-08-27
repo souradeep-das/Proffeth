@@ -11,7 +11,7 @@ Used restricting access to limit everyone for calling a function. The access res
 ![restricting access](https://github.com/souradeep-das/Proffeth/blob/master/images/restricting%20access.png)
 
 ## Fail Early(Use of Require over if condition)
-Require is used instead of if condition for checking any condition. To avoid failing a function without throwing is avoided by using the require statement. The require statement will check for the condition and throw if the condition is met. This has been used in function paytrainer where a nested if condition is replaced with require statements.
+Require is used instead of if condition for checking any condition. To avoid failing a function without throwing is avoided by using the require statement. The require statement will check for the condition and throw if the condition is not met. This has been used in function paytrainer where a nested if condition is replaced with require statements.
 
 ## Oracle 
 An oracle service - Oraclize has been used to get the price of eth in usd. It uses Wolfram Alpha to convert the amount of eth to USD on that specific time.
