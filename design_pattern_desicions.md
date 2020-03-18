@@ -1,7 +1,7 @@
 # Design Patterns
 
 ## Circuit breaker - The Emergency Stop
-Implemented circuit breaker so that the contract can be paused by some authorized person, which will stop ether inflow to the contract. When the emergency is triggered by the authorized, functions like request course, buy course will not work, in order to reject ether flow to the contract. On the same time, the trainers can withdraw their payment without any issues. The contract works normally again when the authorized calls the function resumeContract
+Implemented circuit breaker so that the contract can be paused by some authorized person, which will stop ether inflow yt to the contract. When the emergency is triggered by the authorized, functions like request course, buy course will not work, in order to reject ether flow to the contract. On the same time, the trainers can withdraw their payment without any issues. The contract works normally again when the authorized calls the function resumeContract
 
 ![circuit breaker](https://github.com/souradeep-das/Proffeth/blob/master/images/circuit%20breaker.png)
 
