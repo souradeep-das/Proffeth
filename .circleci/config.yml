@@ -1,0 +1,41 @@
+version: 2
+
+workflows:
+  version: 2
+  build-master:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: master
+      - build-and-deploy:
+          requires:
+            - test
+  build-fork:
+    jobs:
+      - test:
+          type: approval
+          filters:
+            branches:
+              only: /pull\/[0-9]+/
+  build-other-branches:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore: master
+
+jobs:
+  test:
+    docker:
+      - image: node:10-alpine
+    steps:
+      - checkout
+      
+
+  build-and-deploy:
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - checkout
+      
