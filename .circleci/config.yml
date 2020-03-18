@@ -23,7 +23,9 @@ workflows:
       - test:
           filters:
             branches:
-              ignore: master
+              ignore: 
+                - master
+                - /pull\/[0-9]+/
 
 jobs:
   test:
