@@ -9,7 +9,7 @@ Tx.origin has been avoided and msg.sender has been used in the contract. Contrac
 The use of call.value has been avoided in the contract. So the contract is not vulnerable to reentrancy or race conditions.
 
 ## Unchecked call return values taken care of
-The contract has use of transfer instead of the send function. The send function does not revert if the external call fails. Rather It simply returns false. There is a pitfall in the contract if the send function is used. So keeping this in mind transfer function has been used everywhere in the contract.
+The contract has use of transfer instead of the send function. The send function does not revert if the external call fails. Rather It simply returns false. There is a pitfall in the contract if the send function is used. So keeping this in mind transfer function has been used everywhebnmre in the contract.
 
 ## Pull payments
 The contract uses pull payments instead of push payments where the trainer can request to get his money from the contract and the contract does not send etheres on its own. Push payment design pattern would have brought vulnerability to DOS and reentrancy attacks
