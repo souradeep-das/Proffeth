@@ -1,7 +1,7 @@
 # Avoiding Common Attacks
 
 ## Tx.origin avoided
-Tx.origin has been avoided and msg.sender has been used in the contract. Contracts that authorise users using the tx.origin variable can be vulnerable to phishing attacks. Because tx.origin and msg.sender are not the same thing. So throughout the contract tx.origin has been avoided. 
+Tx.origin has been avoided and msg.sender m has been used in the contract. Contracts that authorise users using the tx.origin variable can be vulnerable to phishing attacks. Because tx.origin and msg.sender are not the same thing. So throughout the contract tx.origin has been avoided. 
 
 ![txorigin avoided](https://github.com/souradeep-das/Proffeth/blob/master/images/msgsender.png)
 
