@@ -21,7 +21,7 @@
 - [Screenshots](#screenshots)
 - [Integration with additional services](#integration-with-additional-services)
 - [Tech Stack](#tech-stack)
-
+ - h
 
   ## The problem
   Education platforms which exists currently are limited to teachers or courses from reputed universities. There should be a wider range of courses available to people. After all even small things need to be learnt and can help gain some important skill.There is also a need of a platform for normal people to share courses within themselves.Everyone has something to teach and what better way than earning some money for it. Taking these two factors into account, there exists a dire need of a new kind of skill sharing platform.
