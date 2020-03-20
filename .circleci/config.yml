@@ -11,13 +11,6 @@ workflows:
       - build-and-deploy:
           requires:
             - test
-  build-fork:
-    jobs:
-      - test:
-          type: approval
-          filters:
-            branches:
-              only: /pull\/[0-9]+/
   build-other-branches:
     jobs:
       - test:
