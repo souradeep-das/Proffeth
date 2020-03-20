@@ -13,7 +13,8 @@ workflows:
             - test
   build-fork:
     jobs:
-      - test2:
+      - test
+      - test:
           type: approval
           filters:
             branches:
@@ -32,13 +33,7 @@ jobs:
     docker:
       - image: node:10-alpine
     steps:
-      - checkout
-  test2:
-    docker:
-      - image: node:10-alpine
-    steps:
       - checkout    
-      
   build-and-deploy:
     docker:
       - image: google/cloud-sdk
