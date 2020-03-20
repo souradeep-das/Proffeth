@@ -11,12 +11,21 @@ workflows:
       - build-and-deploy:
           requires:
             - test
+  build-fork:
+    jobs:
+      - test:
+          type: approval
+          filters:
+            branches:
+              only: /pull\/[0-9]+/
   build-other-branches:
     jobs:
       - test:
           filters:
             branches:
-              ignore: master
+              ignore: 
+                - master
+                - /pull\/[0-9]+/
 
 jobs:
   test:
@@ -25,7 +34,6 @@ jobs:
     steps:
       - checkout
       
-
   build-and-deploy:
     docker:
       - image: google/cloud-sdk
