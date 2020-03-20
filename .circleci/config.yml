@@ -13,7 +13,7 @@ workflows:
             - test
   build-fork:
     jobs:
-      - test:
+      - test
       - test:
           type: approval
           filters:
