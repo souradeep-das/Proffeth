@@ -13,14 +13,18 @@ workflows:
             - test
   build-fork:
     jobs:
+      - approve:
+          type: approval
+          filters:  
+            branches:
+              only: /pull\/[0-9]+/
       - test:
+          requires: 
+            - approve
           filters:
             branches:
               only: /pull\/[0-9]+/
-      - test2:  
-          type: approval
-          requires: 
-            - test
+    
   build-other-branches:
     jobs:
       - test:
