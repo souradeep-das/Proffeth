@@ -17,6 +17,10 @@ workflows:
           filters:
             branches:
               only: /pull\/[0-9]+/
+      - test2:  
+          type: approval
+          requires: 
+            - test
   build-other-branches:
     jobs:
       - test:
