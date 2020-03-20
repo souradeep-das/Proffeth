@@ -21,9 +21,6 @@ workflows:
       - test:
           requires: 
             - approve
-          filters:
-            branches:
-              only: /pull\/[0-9]+/
     
   build-other-branches:
     jobs:
