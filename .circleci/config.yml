@@ -7,13 +7,14 @@ workflows:
       - test:
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - /pull\/[0-9]+/
       - build-and-deploy:
           requires:
             - test
   build-fork:
     jobs:
-      - test
       - test:
           type: approval
           filters:
